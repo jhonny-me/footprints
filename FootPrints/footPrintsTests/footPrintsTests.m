@@ -1,19 +1,19 @@
 //
-//  FootPrintsTests.m
-//  FootPrintsTests
+//  footPrintsTests.m
+//  footPrintsTests
 //
-//  Created by Mac OS X  on 15/4/29.
-//  Copyright (c) 2015年 jhonny.copper. All rights reserved.
+//  Created by jhonny.copper on 15/5/10.
+//  Copyright (c) 2015年 jhonny. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface FootPrintsTests : XCTestCase
+@interface footPrintsTests : XCTestCase
 
 @end
 
-@implementation FootPrintsTests
+@implementation footPrintsTests
 
 - (void)setUp {
     [super setUp];

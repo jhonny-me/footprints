@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0610"
+   LastUpgradeVersion = "0630"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52DA8C621AF0786500CD9409"
-               BuildableName = "FootPrints.app"
-               BlueprintName = "FootPrints"
-               ReferencedContainer = "container:FootPrints.xcodeproj">
+               BlueprintIdentifier = "4F40EEAA1AFF1B8800474F17"
+               BuildableName = "footPrints.app"
+               BlueprintName = "footPrints"
+               ReferencedContainer = "container:footPrints.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -28,10 +28,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52DA8C811AF0786500CD9409"
-               BuildableName = "FootPrintsTests.xctest"
-               BlueprintName = "FootPrintsTests"
-               ReferencedContainer = "container:FootPrints.xcodeproj">
+               BlueprintIdentifier = "4F40EEC91AFF1B8900474F17"
+               BuildableName = "footPrintsTests.xctest"
+               BlueprintName = "footPrintsTests"
+               ReferencedContainer = "container:footPrints.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,20 +46,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52DA8C811AF0786500CD9409"
-               BuildableName = "FootPrintsTests.xctest"
-               BlueprintName = "FootPrintsTests"
-               ReferencedContainer = "container:FootPrints.xcodeproj">
+               BlueprintIdentifier = "4F40EEC91AFF1B8900474F17"
+               BuildableName = "footPrintsTests.xctest"
+               BlueprintName = "footPrintsTests"
+               ReferencedContainer = "container:footPrints.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52DA8C621AF0786500CD9409"
-            BuildableName = "FootPrints.app"
-            BlueprintName = "FootPrints"
-            ReferencedContainer = "container:FootPrints.xcodeproj">
+            BlueprintIdentifier = "4F40EEAA1AFF1B8800474F17"
+            BuildableName = "footPrints.app"
+            BlueprintName = "footPrints"
+            ReferencedContainer = "container:footPrints.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -72,13 +72,14 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52DA8C621AF0786500CD9409"
-            BuildableName = "FootPrints.app"
-            BlueprintName = "FootPrints"
-            ReferencedContainer = "container:FootPrints.xcodeproj">
+            BlueprintIdentifier = "4F40EEAA1AFF1B8800474F17"
+            BuildableName = "footPrints.app"
+            BlueprintName = "footPrints"
+            ReferencedContainer = "container:footPrints.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -90,13 +91,14 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52DA8C621AF0786500CD9409"
-            BuildableName = "FootPrints.app"
-            BlueprintName = "FootPrints"
-            ReferencedContainer = "container:FootPrints.xcodeproj">
+            BlueprintIdentifier = "4F40EEAA1AFF1B8800474F17"
+            BuildableName = "footPrints.app"
+            BlueprintName = "footPrints"
+            ReferencedContainer = "container:footPrints.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
