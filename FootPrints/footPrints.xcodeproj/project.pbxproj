@@ -16,6 +16,7 @@
 		4F40EEC21AFF1B8800474F17 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F40EEC11AFF1B8800474F17 /* Images.xcassets */; };
 		4F40EEC51AFF1B8800474F17 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F40EEC31AFF1B8800474F17 /* LaunchScreen.xib */; };
 		4F40EED11AFF1B8900474F17 /* footPrintsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F40EED01AFF1B8900474F17 /* footPrintsTests.m */; };
+		4F40EEDD1AFF2FA300474F17 /* GQMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F40EEDC1AFF2FA300474F17 /* GQMainVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		4F40EECA1AFF1B8900474F17 /* footPrintsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = footPrintsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F40EECF1AFF1B8900474F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F40EED01AFF1B8900474F17 /* footPrintsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = footPrintsTests.m; sourceTree = "<group>"; };
+		4F40EEDB1AFF2FA200474F17 /* GQMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQMainVC.h; sourceTree = "<group>"; };
+		4F40EEDC1AFF2FA300474F17 /* GQMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GQMainVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,8 +90,7 @@
 		4F40EEAD1AFF1B8800474F17 /* footPrints */ = {
 			isa = PBXGroup;
 			children = (
-				4F40EEB21AFF1B8800474F17 /* AppDelegate.h */,
-				4F40EEB31AFF1B8800474F17 /* AppDelegate.m */,
+				4F40EEDA1AFF2F5200474F17 /* AppDelegate */,
 				4F40EEB51AFF1B8800474F17 /* RootViewController.h */,
 				4F40EEB61AFF1B8800474F17 /* RootViewController.m */,
 				4F40EEB81AFF1B8800474F17 /* DataViewController.h */,
@@ -99,6 +101,8 @@
 				4F40EEC11AFF1B8800474F17 /* Images.xcassets */,
 				4F40EEC31AFF1B8800474F17 /* LaunchScreen.xib */,
 				4F40EEAE1AFF1B8800474F17 /* Supporting Files */,
+				4F40EEDB1AFF2FA200474F17 /* GQMainVC.h */,
+				4F40EEDC1AFF2FA300474F17 /* GQMainVC.m */,
 			);
 			path = footPrints;
 			sourceTree = "<group>";
@@ -127,6 +131,15 @@
 				4F40EECF1AFF1B8900474F17 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4F40EEDA1AFF2F5200474F17 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				4F40EEB21AFF1B8800474F17 /* AppDelegate.h */,
+				4F40EEB31AFF1B8800474F17 /* AppDelegate.m */,
+			);
+			name = AppDelegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +244,7 @@
 				4F40EEBA1AFF1B8800474F17 /* DataViewController.m in Sources */,
 				4F40EEB41AFF1B8800474F17 /* AppDelegate.m in Sources */,
 				4F40EEBD1AFF1B8800474F17 /* ModelController.m in Sources */,
+				4F40EEDD1AFF2FA300474F17 /* GQMainVC.m in Sources */,
 				4F40EEB11AFF1B8800474F17 /* main.m in Sources */,
 				4F40EEB71AFF1B8800474F17 /* RootViewController.m in Sources */,
 			);
@@ -431,6 +445,7 @@
 				4F40EED61AFF1B8900474F17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4F40EED71AFF1B8900474F17 /* Build configuration list for PBXNativeTarget "footPrintsTests" */ = {
 			isa = XCConfigurationList;
@@ -439,6 +454,7 @@
 				4F40EED91AFF1B8900474F17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
