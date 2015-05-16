@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2A483039-9C1E-4927-BFD2-35C93EF3277D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>footPrints</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>CC502338F67C40F09F7738EF2FEBB671768573EA</key>
+		<string>https://github.com/jhonny-me/footprints.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>footPrints/footPrints.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>CC502338F67C40F09F7738EF2FEBB671768573EA</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jhonny-me/footprints.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>CC502338F67C40F09F7738EF2FEBB671768573EA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CC502338F67C40F09F7738EF2FEBB671768573EA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>footprints</string>
+		</dict>
+	</array>
+</dict>
+</plist>

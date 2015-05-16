@@ -82,8 +82,8 @@
     for(int i = 0;i<_headerImageArray.count;i++)
     {
 #warning 有图片接口时从网络获取图片，先用假数据
-        UIImageView *topImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 120)];
-        topImageView.image = _headerImageArray[i];
+        UIImageView *topImageView = [[UIImageView alloc]initWithFrame:CGRectMake(320 * i, 0, 320, 120)];
+        topImageView.image = [UIImage imageNamed:_headerImageArray[i]];
         topImageView.userInteractionEnabled = YES;
         //[topImageView sd_setImageWithURL:[NSURL URLWithString:self.picArray[i]]];
         UITapGestureRecognizer *g = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapImageView:)];

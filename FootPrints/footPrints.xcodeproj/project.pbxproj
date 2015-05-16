@@ -17,6 +17,7 @@
 		4F40EEC51AFF1B8800474F17 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F40EEC31AFF1B8800474F17 /* LaunchScreen.xib */; };
 		4F40EED11AFF1B8900474F17 /* footPrintsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F40EED01AFF1B8900474F17 /* footPrintsTests.m */; };
 		4F40EEDD1AFF2FA300474F17 /* GQMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F40EEDC1AFF2FA300474F17 /* GQMainVC.m */; };
+		FAB7653A955650FFC2D673E5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 113808C65FC5CE73B9E64B17 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		113808C65FC5CE73B9E64B17 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		445500E1379A74EEB7FB888F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4F40EEAB1AFF1B8800474F17 /* footPrints.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = footPrints.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F40EEAF1AFF1B8800474F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F40EEB01AFF1B8800474F17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 		4F40EED01AFF1B8900474F17 /* footPrintsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = footPrintsTests.m; sourceTree = "<group>"; };
 		4F40EEDB1AFF2FA200474F17 /* GQMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQMainVC.h; sourceTree = "<group>"; };
 		4F40EEDC1AFF2FA300474F17 /* GQMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GQMainVC.m; sourceTree = "<group>"; };
+		5A24C196C04560857C3A2D8C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB7653A955650FFC2D673E5 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +80,8 @@
 				4F40EEAD1AFF1B8800474F17 /* footPrints */,
 				4F40EECD1AFF1B8900474F17 /* footPrintsTests */,
 				4F40EEAC1AFF1B8800474F17 /* Products */,
+				52BEB203447BFE3887C62226 /* Pods */,
+				E3B719D33004778E679D2040 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,6 +149,23 @@
 			name = AppDelegate;
 			sourceTree = "<group>";
 		};
+		52BEB203447BFE3887C62226 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				445500E1379A74EEB7FB888F /* Pods.debug.xcconfig */,
+				5A24C196C04560857C3A2D8C /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E3B719D33004778E679D2040 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				113808C65FC5CE73B9E64B17 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,9 +173,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F40EED41AFF1B8900474F17 /* Build configuration list for PBXNativeTarget "footPrints" */;
 			buildPhases = (
+				4129F236EC0BE82B31EE8DD3 /* Check Pods Manifest.lock */,
 				4F40EEA71AFF1B8800474F17 /* Sources */,
 				4F40EEA81AFF1B8800474F17 /* Frameworks */,
 				4F40EEA91AFF1B8800474F17 /* Resources */,
+				EB653F7B5240B2E49A30495E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,6 +261,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4129F236EC0BE82B31EE8DD3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EB653F7B5240B2E49A30495E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4F40EEA71AFF1B8800474F17 /* Sources */ = {
@@ -370,6 +429,7 @@
 		};
 		4F40EED51AFF1B8900474F17 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 445500E1379A74EEB7FB888F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jhonny copper (JJE733265Q)";
@@ -382,6 +442,7 @@
 		};
 		4F40EED61AFF1B8900474F17 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A24C196C04560857C3A2D8C /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jhonny copper (JJE733265Q)";
