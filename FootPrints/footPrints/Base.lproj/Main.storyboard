@@ -55,6 +55,9 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <segue destination="2qb-6g-udq" kind="show" id="xca-YR-zOK"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -99,6 +102,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WzM-fs-Kzs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="356" y="-7"/>
+        </scene>
+        <!--GQMapVC-->
+        <scene sceneID="7uA-66-65X">
+            <objects>
+                <viewController id="2qb-6g-udq" userLabel="GQMapVC" customClass="GQMapVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IoY-PN-q73"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mfo-iK-qUQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YAo-QA-GFx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n0l-su-bUP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="885" y="-7"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nxq-8U-8Xb">
