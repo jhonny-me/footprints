@@ -59,9 +59,19 @@ install_resource()
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "AMap2DMap/MAMapKit.framework/Versions/2.5.0.ce99742/Resources/AMap.bundle"
+  install_resource "ELCImagePickerController/Classes/ELCImagePicker/Resources/ELCAlbumPickerController.xib"
+  install_resource "ELCImagePickerController/Classes/ELCImagePicker/Resources/ELCAssetPicker.xib"
+  install_resource "ELCImagePickerController/Classes/ELCImagePicker/Resources/ELCAssetTablePicker.xib"
+  install_resource "ELCImagePickerController/Classes/ELCImagePicker/Resources/Overlay.png"
+  install_resource "ELCImagePickerController/Classes/ELCImagePicker/Resources/Overlay@2x.png"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "AMap2DMap/MAMapKit.framework/Versions/2.5.0.ce99742/Resources/AMap.bundle"
+  install_resource "ELCImagePickerController/Classes/ELCImagePicker/Resources/ELCAlbumPickerController.xib"
+  install_resource "ELCImagePickerController/Classes/ELCImagePicker/Resources/ELCAssetPicker.xib"
+  install_resource "ELCImagePickerController/Classes/ELCImagePicker/Resources/ELCAssetTablePicker.xib"
+  install_resource "ELCImagePickerController/Classes/ELCImagePicker/Resources/Overlay.png"
+  install_resource "ELCImagePickerController/Classes/ELCImagePicker/Resources/Overlay@2x.png"
 fi
 
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

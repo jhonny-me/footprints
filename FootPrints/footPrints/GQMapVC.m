@@ -113,7 +113,7 @@ updatingLocation:(BOOL)updatingLocation
     if ([segue.identifier isEqualToString:@"SegueToShareDetailVC"]) {
      
         GQShareDetailVC *vc = segue.destinationViewController;
-        vc.locationImage = _screenShotImage;
+        vc.image = _screenShotImage;
     }
 }
 

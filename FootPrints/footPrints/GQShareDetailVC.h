@@ -8,9 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GQShareDetailVC : UITableViewController
+@interface GQShareDetailVC :UIViewController
+{
 
-@property (weak, nonatomic) IBOutlet UIImageView *_locationImage;
+    __weak IBOutlet UIImageView *_locationImageView;
+    __weak IBOutlet UIView *_photoView;
+    __weak IBOutlet UITextView *_remarkTextView;
+    __weak IBOutlet UIScrollView *_scrollView;
+    __weak IBOutlet UILabel *_hintLb;
+}
 
-@property (strong, nonatomic) UIImage *locationImage;
+
+@property (strong, nonatomic) UIImage *image;
+
+
 @end
