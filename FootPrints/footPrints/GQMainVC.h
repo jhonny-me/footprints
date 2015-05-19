@@ -11,12 +11,14 @@
 @interface GQMainVC : UITableViewController
 {
 
+    __weak IBOutlet UIView *_fastShareView;
     __weak IBOutlet UIScrollView *_scrollView;
     __weak IBOutlet UIPageControl *_pageController;
     
     __weak IBOutlet UIImageView *_fastShareImage;
     __weak IBOutlet UIButton *_fastShareBtn;
     __weak IBOutlet UIButton *_detailShareBtn;
+    __weak IBOutlet UIView *_contentView;
     
     __weak IBOutlet UIImageView *_historyImage;
     __weak IBOutlet UIButton *_historyBtn;

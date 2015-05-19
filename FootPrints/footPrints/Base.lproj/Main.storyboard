@@ -46,6 +46,9 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="fastShareBtn_Pressed:" destination="Shj-O6-Pnn" eventType="touchUpInside" id="lxA-6x-VoF"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8Q-np-tLn">
                                                     <rect key="frame" x="0.0" y="172" width="320" height="50"/>
@@ -59,6 +62,10 @@
                                                         <segue destination="2qb-6g-udq" kind="show" id="xca-YR-zOK"/>
                                                     </connections>
                                                 </button>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="89W-KQ-XVj">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -68,7 +75,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zbd-cu-afL" id="lM4-dq-GHa">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lpz-XJ-s1w">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="foot" translatesAutoresizingMaskIntoConstraints="NO" id="Lpz-XJ-s1w">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="158"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ume-8G-BS6">
@@ -90,18 +97,47 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="YO3-MS-vhj"/>
                     <connections>
+                        <outlet property="_contentView" destination="Nz8-co-v5D" id="nYX-Oj-SGQ"/>
                         <outlet property="_detailShareBtn" destination="s8Q-np-tLn" id="mFk-XH-nK9"/>
                         <outlet property="_fastShareBtn" destination="eGY-AQ-o9o" id="d8q-kv-nGT"/>
                         <outlet property="_fastShareImage" destination="9nB-hC-E0L" id="1oy-u6-aCV"/>
+                        <outlet property="_fastShareView" destination="89W-KQ-XVj" id="dD5-eR-bzw"/>
                         <outlet property="_historyBtn" destination="ume-8G-BS6" id="iRJ-NB-Pbx"/>
                         <outlet property="_historyImage" destination="Lpz-XJ-s1w" id="EPY-gr-m0N"/>
                         <outlet property="_pageController" destination="9ZD-Gj-8IA" id="7a0-Ei-rtZ"/>
                         <outlet property="_scrollView" destination="cav-um-BMY" id="lHC-0L-8wK"/>
+                        <segue destination="eq8-g0-1BX" kind="show" id="agW-IV-Vy0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WzM-fs-Kzs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="356" y="-7"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="0WD-Nn-ZY1">
+            <objects>
+                <tableViewController id="eq8-g0-1BX" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9wA-Dm-nHE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="frr-wy-wht">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="frr-wy-wht" id="WMX-X1-AWU">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eq8-g0-1BX" id="eE9-Gp-gBi"/>
+                            <outlet property="delegate" destination="eq8-g0-1BX" id="H0Q-JI-Dab"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rTi-iw-VpP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="356" y="701"/>
         </scene>
         <!--GQMapVC-->
         <scene sceneID="7uA-66-65X">
@@ -289,5 +325,6 @@
     </scenes>
     <resources>
         <image name="add" width="54" height="52"/>
+        <image name="foot" width="700" height="874"/>
     </resources>
 </document>

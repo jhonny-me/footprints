@@ -7,12 +7,19 @@
 //
 
 #import "GQMainVC.h"
+#import "MAMapKit/MAMapkit.h"
+#import "GQUtils.h"
+#import "CoreData+MagicalRecord.h"
+#import "Infomation.h"
 
-@interface GQMainVC ()
+@interface GQMainVC ()<MAMapViewDelegate>
 {
-
+    
     NSMutableArray *_headerImageArray;
     NSTimer *_timer;
+    NSTimer *_delayTimer;
+    UIImage *_fastImage;
+    MAMapView *_mapView;
 }
 
 @end
@@ -22,14 +29,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _fastImage = [[UIImage alloc]init];
+    
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
     [self loadGQMainVCData];
     [self loadGQMainVCUI];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,23 +46,29 @@
 }
 
 - (void) loadGQMainVCData{
-
-    _headerImageArray = [[NSMutableArray alloc] initWithObjects:@"头条",@"壁纸", nil];
+    
+    [MAMapServices sharedServices].apiKey = @"2d2710efe4a8593c95b26987963d3b99";
+    
+    _headerImageArray = [[NSMutableArray alloc] init];
+    
+    [self loadRandomInfomation];
 }
 
 - (void) loadGQMainVCUI{
-
+    
+    _fastShareImage.hidden = YES;
+    
     _scrollView.delegate = self;
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.showsVerticalScrollIndicator = NO;
     _scrollView.pagingEnabled = YES;
     _scrollView.contentSize = CGSizeMake(320 * _headerImageArray.count,0);
-
+    
     //分页视图
-
+    
     _pageController.numberOfPages = _headerImageArray.count;
     _pageController.currentPage = 0;
-
+    
     //显示滚动视图
     [self showImageInscrollerView];
     //加定时器
@@ -63,6 +77,17 @@
         [_timer invalidate];
     }
     _timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(changePage:) userInfo:nil repeats:YES];
+    
+    //  load map Image
+    
+    _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(_fastShareView.bounds), CGRectGetHeight(_fastShareView.bounds))];
+    _mapView.delegate = self;
+    _mapView.showsUserLocation = YES;
+    [_mapView setUserTrackingMode:MAUserTrackingModeFollow];
+    [_mapView setZoomLevel:16.1 animated:YES];
+    
+    [_fastShareView addSubview:_mapView];
+    _delayTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(replaceMapWithImage) userInfo:nil repeats:NO];
 }
 - (void)changePage:sender
 {
@@ -81,9 +106,11 @@
 {
     for(int i = 0;i<_headerImageArray.count;i++)
     {
-#warning 有图片接口时从网络获取图片，先用假数据
         UIImageView *topImageView = [[UIImageView alloc]initWithFrame:CGRectMake(320 * i, 0, 320, 120)];
-        topImageView.image = [UIImage imageNamed:_headerImageArray[i]];
+        Infomation *info = (Infomation *)_headerImageArray[i];
+        int imageCount = [info.photoArray count];
+        int randomIndexImage = arc4random() % imageCount;
+        topImageView.image = [info.photoArray objectAtIndex:randomIndexImage];
         topImageView.userInteractionEnabled = YES;
         //[topImageView sd_setImageWithURL:[NSURL URLWithString:self.picArray[i]]];
         UITapGestureRecognizer *g = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapImageView:)];
@@ -96,9 +123,43 @@
 
 - (void)tapImageView:(UITapGestureRecognizer *)g
 {
-#warning 继续  //点击照片的事件
     NSLog(@"222");
     //点击照片的事件
+}
+
+#pragma mark - Map Operation
+
+-(void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation
+updatingLocation:(BOOL)updatingLocation
+{
+    if(updatingLocation)
+    {
+        //取出当前位置的坐标
+        NSLog(@"latitude : %f,longitude: %f",userLocation.coordinate.latitude,userLocation.coordinate.longitude);
+    }
+}
+
+- (void)mapView:(MAMapView *)mapView didAddAnnotationViews:(NSArray *)views
+{
+    MAAnnotationView *view = views[0];
+    
+    // 放到该方法中用以保证userlocation的annotationView已经添加到地图上了。
+    if ([view.annotation isKindOfClass:[MAUserLocation class]])
+    {
+        MAUserLocationRepresentation *pre = [[MAUserLocationRepresentation alloc] init];
+        pre.fillColor = [UIColor colorWithRed:0.9 green:0.1 blue:0.1 alpha:0.3];
+        pre.strokeColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.9 alpha:1.0];
+        pre.image = [UIImage imageNamed:@"location.png"];
+        pre.lineWidth = 3;
+        pre.lineDashPattern = @[@6, @3];
+        
+        pre.showsAccuracyRing = NO;
+        
+        [_mapView updateUserLocationRepresentation:pre];
+        
+        view.calloutOffset = CGPointMake(0, 0);
+        
+    }
 }
 
 
@@ -116,58 +177,82 @@
     return 3;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+#pragma mark - Private Methods
+
+- (void) replaceMapWithImage{
+
+    // replace mapView with ImageView
+    CGRect inRect = CGRectMake(0,0,320,119);
+    _fastImage = [_mapView takeSnapshotInRect:inRect];
+    [_mapView removeFromSuperview];
+    _mapView = nil;
+    _fastShareImage.image = _fastImage;
+    _fastShareImage.hidden = NO;
+    [_contentView bringSubviewToFront:_fastShareImage];
+}
+
+- (void) loadRandomInfomation{
     
-    // Configure the cell...
+    NSArray *infoArray = [[NSArray alloc]init];
+    infoArray = [Infomation MR_findAll];
     
-    return cell;
-}
-*/
+    [_headerImageArray removeAllObjects];
+    
+    int photoPage = 0;
+    if (infoArray.count > 5) {
+    
+        photoPage = 5;
+    }else{
+    
+        photoPage = infoArray.count;
+    }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    BOOL isRepeat = NO;
+    for (int i=0; i<photoPage; i++) {
+        int randomInfoIndex = arc4random() % infoArray.count;
+        for (Infomation* info in _headerImageArray) {
+            if ([info isEqual:infoArray[randomInfoIndex]]) {
+                isRepeat = YES;
+                break;
+            }
+        }
+        
+        if (isRepeat == YES) {
+            continue;
+        }else{
+        
+            [_headerImageArray addObject:infoArray[randomInfoIndex]];
+        }
+    }
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+#pragma mark - Button Events
+
+- (IBAction)fastShareBtn_Pressed:(id)sender {
+    
+    Infomation *info = [Infomation MR_createEntity];
+    
+    info.remark = DEFAULT_MESSAGE;
+    info.date   = [GQUtils getCurrentTime];
+    info.photoArray = [[NSArray arrayWithObject:_fastShareImage.image] mutableCopy];
+    
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    
+    [GQUtils shareToSinaWithMessage:DEFAULT_MESSAGE Image:_fastShareImage.image];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    //    GQMapVC *vc = segue.destinationViewController;
+    //    vc.isFastMood = _isFastMood;
 }
-*/
+
 
 @end

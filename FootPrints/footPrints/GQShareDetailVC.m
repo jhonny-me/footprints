@@ -8,7 +8,7 @@
 
 #import "GQShareDetailVC.h"
 #import "GQUtils.h"
-#import "ShareSDK/ShareSDK.h"
+
 #import "ELCImagePickerController.h"
 #import "CoreData+MagicalRecord.h"
 #import "Infomation.h"
@@ -122,42 +122,44 @@
     
     NSString *content = [NSString stringWithString:_remarkTextView.text];
     if ([content isEqualToString:@""]) {
-        content = @"我在这里，大家快来快来玩";
+        content = DEFAULT_MESSAGE;
     }
     
     //存储数据库
     [self addToDataBaseWithRemark:content];
     
-    //构造分享内容
-    id<ISSContent> publishContent = [ShareSDK content:content
-                                       defaultContent:@"测试一下"
-                                                image:[ShareSDK pngImageWithImage:self.image]
-                                                title:@"ShareSDK"
-                                                  url:@"http://www.mob.com"
-                                          description:@"这是一条测试信息"
-                                            mediaType:SSPublishContentMediaTypeNews];
+    [GQUtils shareToSinaWithMessage:content Image:self.image];
     
-    WAITING_START(@"分享中。。。")
-    [ShareSDK shareContent:publishContent
-                      type:ShareTypeSinaWeibo
-               authOptions:nil
-              shareOptions:nil
-             statusBarTips:YES
-                    result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
-                        if (state == SSPublishContentStateSuccess)
-                        {
-                            WAITING_END()
-                            NSLog(NSLocalizedString(@"TEXT_SHARE_SUC", @"发表成功"));
-                            [GQUtils showAlert:@"分享成功"];
-                        }
-                        else if (state == SSPublishContentStateFail)
-                        {
-                            WAITING_END()
-                            NSLog(NSLocalizedString(@"TEXT_SHARE_FAI", @"发布失败!error code == %d, error code == %@"), [error errorCode], [error errorDescription]);
-                            [GQUtils showAlert:(NSLocalizedString(@"TEXT_SHARE_FAI", @"分享失败,错误码:%d,错误描述:%@"), [error errorCode], [error errorDescription])];
-                        }
-                        
-                    }];
+//    //构造分享内容
+//    id<ISSContent> publishContent = [ShareSDK content:content
+//                                       defaultContent:@"测试一下"
+//                                                image:[ShareSDK pngImageWithImage:self.image]
+//                                                title:@"ShareSDK"
+//                                                  url:@"http://www.mob.com"
+//                                          description:@"这是一条测试信息"
+//                                            mediaType:SSPublishContentMediaTypeNews];
+//    
+//    WAITING_START(@"分享中。。。")
+//    [ShareSDK shareContent:publishContent
+//                      type:ShareTypeSinaWeibo
+//               authOptions:nil
+//              shareOptions:nil
+//             statusBarTips:YES
+//                    result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+//                        if (state == SSPublishContentStateSuccess)
+//                        {
+//                            WAITING_END()
+//                            NSLog(NSLocalizedString(@"TEXT_SHARE_SUC", @"发表成功"));
+//                            [GQUtils showAlert:@"分享成功"];
+//                        }
+//                        else if (state == SSPublishContentStateFail)
+//                        {
+//                            WAITING_END()
+//                            NSLog(NSLocalizedString(@"TEXT_SHARE_FAI", @"发布失败!error code == %d, error code == %@"), [error errorCode], [error errorDescription]);
+//                            [GQUtils showAlert:(NSLocalizedString(@"TEXT_SHARE_FAI", @"分享失败,错误码:%d,错误描述:%@"), [error errorCode], [error errorDescription])];
+//                        }
+//                        
+//                    }];
     
 //    NSArray *shareList = [ShareSDK getShareListWithType:ShareTypeSinaWeibo, nil];
 //    [ShareSDK oneKeyShareContent:publishContent//内容对象
@@ -185,17 +187,13 @@
 
     Infomation *info = [Infomation MR_createEntity];
     info.remark = remark;
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
-    NSString *destString = [NSString stringWithString:[formatter stringFromDate:[NSDate date]]];
 
-    info.date   = destString;
+    info.date   = [GQUtils getCurrentTime];
     
     // set photoArray
     NSMutableArray *photoArray = [NSMutableArray arrayWithArray:_imageArray];
     [photoArray insertObject:self.image atIndex:0];
-    
+    info.photoArray = [photoArray mutableCopy];
     // save changes
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }

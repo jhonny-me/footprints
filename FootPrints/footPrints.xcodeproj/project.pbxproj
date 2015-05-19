@@ -64,6 +64,7 @@
 		445500E1379A74EEB7FB888F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4F02AA451B0A2B2400CEFD61 /* GQUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQUtils.h; sourceTree = "<group>"; };
 		4F02AA461B0A2B2400CEFD61 /* GQUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GQUtils.m; sourceTree = "<group>"; };
+		4F1916061B0B47BC00ED085F /* GQMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQMacros.h; sourceTree = "<group>"; };
 		4F3480B81B0ABFB50061A453 /* SinaWeiboConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SinaWeiboConnection.framework; sourceTree = "<group>"; };
 		4F3480B91B0ABFB50061A453 /* WeChatConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WeChatConnection.framework; sourceTree = "<group>"; };
 		4F3480BB1B0ABFB50061A453 /* AGCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AGCommon.framework; sourceTree = "<group>"; };
@@ -159,6 +160,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F1916051B0B478900ED085F /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				4F02AA451B0A2B2400CEFD61 /* GQUtils.h */,
+				4F02AA461B0A2B2400CEFD61 /* GQUtils.m */,
+				4F1916061B0B47BC00ED085F /* GQMacros.h */,
+			);
+			name = Modal;
+			sourceTree = "<group>";
+		};
 		4F3480B61B0ABFB50061A453 /* ShareSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +264,7 @@
 		4F40EEAD1AFF1B8800474F17 /* footPrints */ = {
 			isa = PBXGroup;
 			children = (
+				4F1916051B0B478900ED085F /* Modal */,
 				4FD4164C1B0B099E00CF372D /* DataBase */,
 				4FD416451B0AF91E00CF372D /* Libraries */,
 				4F3480B61B0ABFB50061A453 /* ShareSDK */,
@@ -273,8 +285,6 @@
 				4F40EEAE1AFF1B8800474F17 /* Supporting Files */,
 				4F40EEDB1AFF2FA200474F17 /* GQMainVC.h */,
 				4F40EEDC1AFF2FA300474F17 /* GQMainVC.m */,
-				4F02AA451B0A2B2400CEFD61 /* GQUtils.h */,
-				4F02AA461B0A2B2400CEFD61 /* GQUtils.m */,
 			);
 			path = footPrints;
 			sourceTree = "<group>";

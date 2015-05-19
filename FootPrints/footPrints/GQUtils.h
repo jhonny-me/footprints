@@ -6,30 +6,20 @@
 //  Copyright (c) 2015年 jhonny. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+//#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "SHKActivityIndicator.h"
-
-// Keyboard
-#define KEYBOARD_HEIGHT 340
-
-
-#define WAITING_START(waitingMessage)  \
-self.view.userInteractionEnabled=NO; \
-[[SHKActivityIndicator currentIndicator] displayActivity: waitingMessage];
-
-#define WAITING_END() \
-self.view.userInteractionEnabled=YES; \
-[[SHKActivityIndicator currentIndicator] hide];
+#import "GQMacros.h"
 
 
 @interface GQUtils : NSObject
 
-+ (void)changeViewHeight: (UIView*)view height: (CGFloat)height;
-+ (void)changeViewWidth: (UIView*)view width: (CGFloat)width;
-+ (void)moveViewToX: (UIView*)view x: (CGFloat)x;
-+ (void)moveViewToY: (UIView*)view y: (CGFloat)y;
+//+ (void)changeViewHeight: (UIView*)view height: (CGFloat)height;
+//+ (void)changeViewWidth: (UIView*)view width: (CGFloat)width;
+//+ (void)moveViewToX: (UIView*)view x: (CGFloat)x;
+//+ (void)moveViewToY: (UIView*)view y: (CGFloat)y;
 
++ (void) shareToSinaWithMessage:(NSString *)message Image:(UIImage *)image;
 + (void) showAlert:(NSString*) message;
++ (NSString *) getCurrentTime;
 
 @end
