@@ -83,6 +83,9 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="rightFootBtn_Pressed:" destination="Shj-O6-Pnn" eventType="touchUpInside" id="oae-38-Wcw"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -106,17 +109,17 @@
                         <outlet property="_historyImage" destination="Lpz-XJ-s1w" id="EPY-gr-m0N"/>
                         <outlet property="_pageController" destination="9ZD-Gj-8IA" id="7a0-Ei-rtZ"/>
                         <outlet property="_scrollView" destination="cav-um-BMY" id="lHC-0L-8wK"/>
-                        <segue destination="eq8-g0-1BX" kind="show" id="agW-IV-Vy0"/>
+                        <segue destination="eq8-g0-1BX" kind="show" identifier="SegueToInfoListVC" id="agW-IV-Vy0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WzM-fs-Kzs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="356" y="-7"/>
         </scene>
-        <!--Table View Controller-->
+        <!--InfoListVC-->
         <scene sceneID="0WD-Nn-ZY1">
             <objects>
-                <tableViewController id="eq8-g0-1BX" sceneMemberID="viewController">
+                <tableViewController id="eq8-g0-1BX" userLabel="InfoListVC" customClass="GQInfoListVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9wA-Dm-nHE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

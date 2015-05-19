@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Infomation.h"
 
 @interface GQInfoListCell : UITableViewCell
+{
+
+    __weak IBOutlet UILabel *_remarkLb;
+    __weak IBOutlet UILabel *_timeLb;
+    __weak IBOutlet UIView *_imageHolderView;
+}
+
+- (void) setContentWithInfomation:(Infomation*)info;
 
 @end

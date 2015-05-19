@@ -7,8 +7,15 @@
 //
 
 #import "GQInfoListVC.h"
+#import "GQInfoListCell.h"
+#import "Infomation.h"
+#import "CoreData+MagicalRecord.h"
 
 @interface GQInfoListVC ()
+{
+
+    NSMutableArray *_infoArray;
+}
 
 @end
 
@@ -17,6 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _infoArray = [[NSMutableArray alloc]init];
+    [self loadGQInfoListVCData];
+    [self loadGQInfoListVCUI];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -29,29 +39,49 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Load Operation
+
+- (void) loadGQInfoListVCData{
+
+    [self loadDataBase];
+}
+
+- (void) loadGQInfoListVCUI{}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return _infoArray.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    GQInfoListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GQInfoListCell"];
     
+    if (!cell) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"GQInfoListCell" owner:nil options:nil] lastObject];
+    }
+    [cell setContentWithInfomation:_infoArray[indexPath.row]];
     // Configure the cell...
     
     return cell;
 }
-*/
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    Infomation *info = _infoArray[indexPath.row];
+    if ([info.photoArray count] > 2) {
+        return 280;
+    }
+    return 175;
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -86,6 +116,14 @@
     return YES;
 }
 */
+
+#pragma mark - Load DataBase
+
+- (void) loadDataBase{
+
+    _infoArray = [NSMutableArray arrayWithArray:[Infomation MR_findAll]];
+    
+}
 
 /*
 #pragma mark - Navigation

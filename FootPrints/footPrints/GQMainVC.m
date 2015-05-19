@@ -242,6 +242,10 @@ updatingLocation:(BOOL)updatingLocation
 }
 
 
+- (IBAction)rightFootBtn_Pressed:(id)sender {
+    
+    [self performSegueWithIdentifier:@"SegueToInfoListVC" sender:self];
+}
 
 
 #pragma mark - Navigation

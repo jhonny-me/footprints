@@ -39,6 +39,9 @@
 		4F40EED11AFF1B8900474F17 /* footPrintsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F40EED01AFF1B8900474F17 /* footPrintsTests.m */; };
 		4F40EEDD1AFF2FA300474F17 /* GQMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F40EEDC1AFF2FA300474F17 /* GQMainVC.m */; };
 		4F5CED2B1B08613700D1BA76 /* GQShareDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5CED2A1B08613700D1BA76 /* GQShareDetailVC.m */; };
+		4F8005131B0B973B00925197 /* GQInfoListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8005121B0B973B00925197 /* GQInfoListVC.m */; };
+		4F8005181B0B979600925197 /* GQInfoListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8005161B0B979600925197 /* GQInfoListCell.m */; };
+		4F8005191B0B979600925197 /* GQInfoListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F8005171B0B979600925197 /* GQInfoListCell.xib */; };
 		4F8E8A611B071AE800F369ED /* GQMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8E8A601B071AE800F369ED /* GQMapVC.m */; };
 		4F8E8A631B07239D00F369ED /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8E8A621B07239D00F369ED /* CoreLocation.framework */; };
 		4FD416441B0ADA9C00CF372D /* backgroud.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FD416431B0ADA9C00CF372D /* backgroud.png */; };
@@ -110,6 +113,11 @@
 		4F40EEDC1AFF2FA300474F17 /* GQMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GQMainVC.m; sourceTree = "<group>"; };
 		4F5CED291B08613700D1BA76 /* GQShareDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQShareDetailVC.h; sourceTree = "<group>"; };
 		4F5CED2A1B08613700D1BA76 /* GQShareDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GQShareDetailVC.m; sourceTree = "<group>"; };
+		4F8005111B0B973B00925197 /* GQInfoListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQInfoListVC.h; sourceTree = "<group>"; };
+		4F8005121B0B973B00925197 /* GQInfoListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GQInfoListVC.m; sourceTree = "<group>"; };
+		4F8005151B0B979600925197 /* GQInfoListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQInfoListCell.h; sourceTree = "<group>"; };
+		4F8005161B0B979600925197 /* GQInfoListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GQInfoListCell.m; sourceTree = "<group>"; };
+		4F8005171B0B979600925197 /* GQInfoListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GQInfoListCell.xib; sourceTree = "<group>"; };
 		4F8E8A5F1B071AE800F369ED /* GQMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQMapVC.h; sourceTree = "<group>"; };
 		4F8E8A601B071AE800F369ED /* GQMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GQMapVC.m; sourceTree = "<group>"; };
 		4F8E8A621B07239D00F369ED /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -264,6 +272,7 @@
 		4F40EEAD1AFF1B8800474F17 /* footPrints */ = {
 			isa = PBXGroup;
 			children = (
+				4F8005101B0B96E800925197 /* ViewController */,
 				4F1916051B0B478900ED085F /* Modal */,
 				4FD4164C1B0B099E00CF372D /* DataBase */,
 				4FD416451B0AF91E00CF372D /* Libraries */,
@@ -276,15 +285,9 @@
 				4F40EEBB1AFF1B8800474F17 /* ModelController.h */,
 				4F40EEBC1AFF1B8800474F17 /* ModelController.m */,
 				4F40EEBE1AFF1B8800474F17 /* Main.storyboard */,
-				4F8E8A5F1B071AE800F369ED /* GQMapVC.h */,
-				4F8E8A601B071AE800F369ED /* GQMapVC.m */,
-				4F5CED291B08613700D1BA76 /* GQShareDetailVC.h */,
-				4F5CED2A1B08613700D1BA76 /* GQShareDetailVC.m */,
 				4F40EEC11AFF1B8800474F17 /* Images.xcassets */,
 				4F40EEC31AFF1B8800474F17 /* LaunchScreen.xib */,
 				4F40EEAE1AFF1B8800474F17 /* Supporting Files */,
-				4F40EEDB1AFF2FA200474F17 /* GQMainVC.h */,
-				4F40EEDC1AFF2FA300474F17 /* GQMainVC.m */,
 			);
 			path = footPrints;
 			sourceTree = "<group>";
@@ -323,6 +326,32 @@
 				4F40EEB31AFF1B8800474F17 /* AppDelegate.m */,
 			);
 			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		4F8005101B0B96E800925197 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4F8005141B0B976D00925197 /* cell */,
+				4F8E8A5F1B071AE800F369ED /* GQMapVC.h */,
+				4F8E8A601B071AE800F369ED /* GQMapVC.m */,
+				4F5CED291B08613700D1BA76 /* GQShareDetailVC.h */,
+				4F5CED2A1B08613700D1BA76 /* GQShareDetailVC.m */,
+				4F40EEDB1AFF2FA200474F17 /* GQMainVC.h */,
+				4F40EEDC1AFF2FA300474F17 /* GQMainVC.m */,
+				4F8005111B0B973B00925197 /* GQInfoListVC.h */,
+				4F8005121B0B973B00925197 /* GQInfoListVC.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		4F8005141B0B976D00925197 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				4F8005151B0B979600925197 /* GQInfoListCell.h */,
+				4F8005161B0B979600925197 /* GQInfoListCell.m */,
+				4F8005171B0B979600925197 /* GQInfoListCell.xib */,
+			);
+			name = cell;
 			sourceTree = "<group>";
 		};
 		4FD416451B0AF91E00CF372D /* Libraries */ = {
@@ -463,6 +492,7 @@
 				4F40EEC01AFF1B8800474F17 /* Main.storyboard in Resources */,
 				4F40EEC51AFF1B8800474F17 /* LaunchScreen.xib in Resources */,
 				4F3480D91B0ABFB50061A453 /* ShareSDKFlatShareViewUI.bundle in Resources */,
+				4F8005191B0B979600925197 /* GQInfoListCell.xib in Resources */,
 				4F3480D21B0ABFB50061A453 /* ShareSDKLocalizable.strings in Resources */,
 				4FD416441B0ADA9C00CF372D /* backgroud.png in Resources */,
 				4F40EEC21AFF1B8800474F17 /* Images.xcassets in Resources */,
@@ -519,6 +549,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F40EEBA1AFF1B8800474F17 /* DataViewController.m in Sources */,
+				4F8005131B0B973B00925197 /* GQInfoListVC.m in Sources */,
 				4FD416491B0AF93400CF372D /* SHKActivityIndicator.m in Sources */,
 				4F40EEB41AFF1B8800474F17 /* AppDelegate.m in Sources */,
 				4F40EEBD1AFF1B8800474F17 /* ModelController.m in Sources */,
@@ -530,6 +561,7 @@
 				4FD4164F1B0B09D800CF372D /* Model.xcdatamodeld in Sources */,
 				4F02AA471B0A2B2400CEFD61 /* GQUtils.m in Sources */,
 				4FD416521B0B0B0900CF372D /* Infomation.m in Sources */,
+				4F8005181B0B979600925197 /* GQInfoListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
