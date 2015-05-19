@@ -9,8 +9,15 @@
 #import "GQShareDetailVC.h"
 #import "GQUtils.h"
 #import "ShareSDK/ShareSDK.h"
+#import "ELCImagePickerController.h"
+#import "CoreData+MagicalRecord.h"
+#import "Infomation.h"
 
-@interface GQShareDetailVC ()<UITextViewDelegate>
+@interface GQShareDetailVC ()<UITextViewDelegate,ELCImagePickerControllerDelegate,ELCAssetSelectionDelegate>
+{
+
+    NSMutableArray *_imageArray;
+}
 
 @end
 
@@ -47,7 +54,10 @@
 
 #pragma mark - Load Operations
 
-- (void) loadGQShareDetailVCData{}
+- (void) loadGQShareDetailVCData{
+
+    _imageArray = [[NSMutableArray alloc]init];
+}
 
 - (void) loadGQShareDetailVCUI{
 
@@ -90,6 +100,20 @@
     [_remarkTextView resignFirstResponder];
 }
 
+- (IBAction)addImageBtn_Pressed:(id)sender {
+    
+    // Create the image picker
+    ELCImagePickerController *elcPicker = [[ELCImagePickerController alloc] init];
+    elcPicker.maximumImagesCount = 3; //Set the maximum number of images to select, defaults to 4
+//    elcPicker.returnsOriginalImage = NO; //Only return the fullScreenImage, not the fullResolutionImage
+//    elcPicker.returnsImage = YES; //Return UIimage if YES. If NO, only return asset location information
+//    elcPicker.onOrder = YES; //For multiple image selection, display and return selected order of images
+    elcPicker.imagePickerDelegate = self;
+    
+    //Present modally
+    [self presentViewController:elcPicker animated:YES completion:nil];
+}
+
 - (IBAction)shareBtn_Pressed:(id)sender {
     
 //    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"backgroud" ofType:@"png"];
@@ -100,6 +124,10 @@
     if ([content isEqualToString:@""]) {
         content = @"我在这里，大家快来快来玩";
     }
+    
+    //存储数据库
+    [self addToDataBaseWithRemark:content];
+    
     //构造分享内容
     id<ISSContent> publishContent = [ShareSDK content:content
                                        defaultContent:@"测试一下"
@@ -149,6 +177,67 @@
 //                                  [GQUtils showAlert:(NSLocalizedString(@"TEXT_SHARE_FAI", @"分享失败,错误码:%d,错误描述:%@"), [error errorCode], [error errorDescription])];
 //                              }
 //                          }];
+}
+
+#pragma mark - Private Methods
+
+- (void) addToDataBaseWithRemark:(NSString *)remark{
+
+    Infomation *info = [Infomation MR_createEntity];
+    info.remark = remark;
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    NSString *destString = [NSString stringWithString:[formatter stringFromDate:[NSDate date]]];
+
+    info.date   = destString;
+    
+    // set photoArray
+    NSMutableArray *photoArray = [NSMutableArray arrayWithArray:_imageArray];
+    [photoArray insertObject:self.image atIndex:0];
+    
+    // save changes
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+}
+
+#pragma mark - Image Selection
+
+- (void)selectedAssets:(NSArray *)assets{
+
+    NSLog(@"%@",assets);
+}
+
+- (BOOL)shouldSelectAsset:(ELCAsset *)asset previousCount:(NSUInteger)previousCount{
+
+    return YES;
+}
+
+- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info{
+    
+    // 给image重新赋值前先清空
+    for (int i =101; i< 104; i++) {
+        UIImageView *view = (UIImageView *)[self.view viewWithTag:i];
+        view.image = nil;
+    }
+    
+    [_imageArray removeAllObjects];
+    
+    // 赋值
+    for (int i =101; i<info.count + 101; i++) {
+        UIImageView *view = (UIImageView *)[self.view viewWithTag:i];
+        view.image = [info[i-101] objectForKey:@"UIImagePickerControllerOriginalImage"];
+        [_imageArray addObject:view.image];
+    }
+
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+/**
+ * Called when image selection was cancelled, by tapping the 'Cancel' BarButtonItem.
+ */
+- (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker{
+
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

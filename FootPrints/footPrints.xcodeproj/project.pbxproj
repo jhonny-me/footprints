@@ -43,6 +43,9 @@
 		4F8E8A631B07239D00F369ED /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8E8A621B07239D00F369ED /* CoreLocation.framework */; };
 		4FD416441B0ADA9C00CF372D /* backgroud.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FD416431B0ADA9C00CF372D /* backgroud.png */; };
 		4FD416491B0AF93400CF372D /* SHKActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD416481B0AF93400CF372D /* SHKActivityIndicator.m */; };
+		4FD4164B1B0B092400CF372D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD4164A1B0B092400CF372D /* CoreData.framework */; };
+		4FD4164F1B0B09D800CF372D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FD4164D1B0B09D800CF372D /* Model.xcdatamodeld */; };
+		4FD416521B0B0B0900CF372D /* Infomation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD416511B0B0B0900CF372D /* Infomation.m */; };
 		FAB7653A955650FFC2D673E5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 113808C65FC5CE73B9E64B17 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +115,10 @@
 		4FD416431B0ADA9C00CF372D /* backgroud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroud.png; sourceTree = "<group>"; };
 		4FD416471B0AF93400CF372D /* SHKActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKActivityIndicator.h; sourceTree = "<group>"; };
 		4FD416481B0AF93400CF372D /* SHKActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKActivityIndicator.m; sourceTree = "<group>"; };
+		4FD4164A1B0B092400CF372D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4FD4164E1B0B09D800CF372D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		4FD416501B0B0B0900CF372D /* Infomation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Infomation.h; sourceTree = "<group>"; };
+		4FD416511B0B0B0900CF372D /* Infomation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Infomation.m; sourceTree = "<group>"; };
 		5A24C196C04560857C3A2D8C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FD4164B1B0B092400CF372D /* CoreData.framework in Frameworks */,
 				4F3480E91B0AC0840061A453 /* ImageIO.framework in Frameworks */,
 				4F3480E71B0AC06B0061A453 /* Security.framework in Frameworks */,
 				4F3480E51B0AC05F0061A453 /* libz.1.2.5.dylib in Frameworks */,
@@ -245,6 +253,7 @@
 		4F40EEAD1AFF1B8800474F17 /* footPrints */ = {
 			isa = PBXGroup;
 			children = (
+				4FD4164C1B0B099E00CF372D /* DataBase */,
 				4FD416451B0AF91E00CF372D /* Libraries */,
 				4F3480B61B0ABFB50061A453 /* ShareSDK */,
 				4F40EEDA1AFF2F5200474F17 /* AppDelegate */,
@@ -323,6 +332,16 @@
 			path = SHKActivityIndicator;
 			sourceTree = "<group>";
 		};
+		4FD4164C1B0B099E00CF372D /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				4FD4164D1B0B09D800CF372D /* Model.xcdatamodeld */,
+				4FD416501B0B0B0900CF372D /* Infomation.h */,
+				4FD416511B0B0B0900CF372D /* Infomation.m */,
+			);
+			name = DataBase;
+			sourceTree = "<group>";
+		};
 		52BEB203447BFE3887C62226 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +354,7 @@
 		E3B719D33004778E679D2040 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4FD4164A1B0B092400CF372D /* CoreData.framework */,
 				4F3480E81B0AC0840061A453 /* ImageIO.framework */,
 				4F3480E61B0AC06B0061A453 /* Security.framework */,
 				4F3480E41B0AC05F0061A453 /* libz.1.2.5.dylib */,
@@ -497,7 +517,9 @@
 				4F40EEB11AFF1B8800474F17 /* main.m in Sources */,
 				4F8E8A611B071AE800F369ED /* GQMapVC.m in Sources */,
 				4F40EEB71AFF1B8800474F17 /* RootViewController.m in Sources */,
+				4FD4164F1B0B09D800CF372D /* Model.xcdatamodeld in Sources */,
 				4F02AA471B0A2B2400CEFD61 /* GQUtils.m in Sources */,
+				4FD416521B0B0B0900CF372D /* Infomation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,6 +765,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4FD4164D1B0B09D800CF372D /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4FD4164E1B0B09D800CF372D /* Model.xcdatamodel */,
+			);
+			currentVersion = 4FD4164E1B0B09D800CF372D /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4F40EEA31AFF1B8800474F17 /* Project object */;
 }

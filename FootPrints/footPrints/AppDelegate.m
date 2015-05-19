@@ -10,6 +10,7 @@
 #import "CoreLocation/CLLocationManager.h"
 #import "ShareSDK/ShareSDK.h"
 #import "WeiboSDK.h"
+#import "CoreData+MagicalRecord.h"
 
 @interface AppDelegate ()<CLLocationManagerDelegate>
 {
@@ -37,6 +38,9 @@
     [ShareSDK connectSinaWeiboWithAppKey:@"1275159907" appSecret:@"5468a0ef6fb237cbf29e78d7dc21103a" redirectUri:@"http://open.weibo.com/apps/1275159907/privilege/oauth"];
     
     [ShareSDK connectSinaWeiboWithAppKey:@"1275159907" appSecret:@"5468a0ef6fb237cbf29e78d7dc21103a" redirectUri:@"http://open.weibo.com/apps/1275159907/privilege/oauth" weiboSDKCls:[WeiboSDK class]];
+    
+    // dataBase init
+     [MagicalRecord setupCoreDataStackWithStoreNamed:@"MyDatabase.sqlite"];
     
     return YES;
 }
