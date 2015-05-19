@@ -94,6 +94,8 @@
     
 //    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"backgroud" ofType:@"png"];
     
+    [_remarkTextView resignFirstResponder];
+    
     NSString *content = [NSString stringWithString:_remarkTextView.text];
     if ([content isEqualToString:@""]) {
         content = @"我在这里，大家快来快来玩";
@@ -107,6 +109,7 @@
                                           description:@"这是一条测试信息"
                                             mediaType:SSPublishContentMediaTypeNews];
     
+    WAITING_START(@"分享中。。。")
     [ShareSDK shareContent:publishContent
                       type:ShareTypeSinaWeibo
                authOptions:nil
@@ -115,11 +118,13 @@
                     result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
                         if (state == SSPublishContentStateSuccess)
                         {
+                            WAITING_END()
                             NSLog(NSLocalizedString(@"TEXT_SHARE_SUC", @"发表成功"));
                             [GQUtils showAlert:@"分享成功"];
                         }
                         else if (state == SSPublishContentStateFail)
                         {
+                            WAITING_END()
                             NSLog(NSLocalizedString(@"TEXT_SHARE_FAI", @"发布失败!error code == %d, error code == %@"), [error errorCode], [error errorDescription]);
                             [GQUtils showAlert:(NSLocalizedString(@"TEXT_SHARE_FAI", @"分享失败,错误码:%d,错误描述:%@"), [error errorCode], [error errorDescription])];
                         }

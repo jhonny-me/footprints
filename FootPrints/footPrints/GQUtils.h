@@ -8,9 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "SHKActivityIndicator.h"
 
 // Keyboard
 #define KEYBOARD_HEIGHT 340
+
+
+#define WAITING_START(waitingMessage)  \
+self.view.userInteractionEnabled=NO; \
+[[SHKActivityIndicator currentIndicator] displayActivity: waitingMessage];
+
+#define WAITING_END() \
+self.view.userInteractionEnabled=YES; \
+[[SHKActivityIndicator currentIndicator] hide];
+
 
 @interface GQUtils : NSObject
 
