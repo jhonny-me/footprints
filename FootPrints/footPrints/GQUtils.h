@@ -19,4 +19,6 @@
 + (void)moveViewToX: (UIView*)view x: (CGFloat)x;
 + (void)moveViewToY: (UIView*)view y: (CGFloat)y;
 
++ (void) showAlert:(NSString*) message;
+
 @end

@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "CoreLocation/CLLocationManager.h"
+#import "ShareSDK/ShareSDK.h"
+#import "WeiboSDK.h"
 
 @interface AppDelegate ()<CLLocationManagerDelegate>
 {
@@ -22,13 +24,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    // location Operation
     _locationManager = [[CLLocationManager alloc] init];
     [_locationManager requestAlwaysAuthorization];        //NSLocationAlwaysUsageDescription
     [_locationManager requestWhenInUseAuthorization];     //NSLocationWhenInUseDescription
     _locationManager.delegate = self;
     
     [_locationManager startUpdatingLocation];
-    // Override point for customization after application launch.
+
+    [ShareSDK registerApp:@"777951ec95b3"];
+    
+    [ShareSDK connectSinaWeiboWithAppKey:@"1275159907" appSecret:@"5468a0ef6fb237cbf29e78d7dc21103a" redirectUri:@"http://open.weibo.com/apps/1275159907/privilege/oauth"];
+    
+    [ShareSDK connectSinaWeiboWithAppKey:@"1275159907" appSecret:@"5468a0ef6fb237cbf29e78d7dc21103a" redirectUri:@"http://open.weibo.com/apps/1275159907/privilege/oauth" weiboSDKCls:[WeiboSDK class]];
     
     return YES;
 }

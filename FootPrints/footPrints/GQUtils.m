@@ -40,5 +40,13 @@
     view.frame = frame;
 }
 
+#pragma mark - Alert View
+
++ (void) showAlert:(NSString*) message{
+
+   UIAlertView *view = [[UIAlertView alloc]initWithTitle:nil message:message delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    [view show];
+}
+
 
 @end
