@@ -10,6 +10,7 @@
 #import "GQInfoListCell.h"
 #import "Infomation.h"
 #import "CoreData+MagicalRecord.h"
+#import "GQUtils.h"
 
 @interface GQInfoListVC ()
 {
@@ -25,13 +26,20 @@
     [super viewDidLoad];
     
     _infoArray = [[NSMutableArray alloc]init];
-    [self loadGQInfoListVCData];
-    [self loadGQInfoListVCUI];
+    self.navigationItem.title = @"我的👣";
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self loadGQInfoListVCData];
+    [self loadGQInfoListVCUI];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,6 +52,7 @@
 - (void) loadGQInfoListVCData{
 
     [self loadDataBase];
+    [self.tableView reloadData];
 }
 
 - (void) loadGQInfoListVCUI{}
@@ -83,25 +92,30 @@
     return 175;
 }
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self deleteFromDatabaseWithInfomation:_infoArray[indexPath.row]];
+        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return @"删除";
+}
 
 /*
 // Override to support rearranging the table view.
@@ -117,13 +131,39 @@
 }
 */
 
-#pragma mark - Load DataBase
+#pragma mark - Private Methods
 
 - (void) loadDataBase{
+    
+    [_infoArray removeAllObjects];
 
     _infoArray = [NSMutableArray arrayWithArray:[Infomation MR_findAll]];
     
 }
+
+- (void) deleteFromDatabaseWithInfomation:(Infomation*)info{
+
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self == %@",info];
+    NSArray *foundArray = [Infomation MR_findAllWithPredicate:predicate];
+    Infomation *needDeleteInfo = [foundArray firstObject];
+    [needDeleteInfo MR_deleteEntity];
+    [[NSManagedObjectContext MR_defaultContext]MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+        if (error) {
+            [GQUtils showAlert:[error localizedDescription]];
+        }else{
+        
+            if (success == YES) {
+                
+                [GQUtils showAlert:@"删除成功"];
+                [self viewWillAppear:NO];
+            }else{
+                
+                [GQUtils showAlert:@"删除失败，请重试"];
+            }
+        }
+    }];
+}
+
 
 /*
 #pragma mark - Navigation

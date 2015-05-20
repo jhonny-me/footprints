@@ -6,8 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="300" id="KGk-i7-Jjw" customClass="GQInfoListCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="289" id="KGk-i7-Jjw" customClass="GQInfoListCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="289"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -33,7 +33,7 @@
                         <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hLQ-bZ-QV2">
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hLQ-bZ-QV2">
                         <rect key="frame" x="8" y="66" width="205" height="205"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" tag="200" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pGx-3X-C1Z">
@@ -49,20 +49,19 @@
                                 <rect key="frame" x="105" y="105" width="100" height="100"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="205" id="Apb-gg-C4Z"/>
-                            <constraint firstAttribute="width" constant="205" id="lLR-VW-8eW"/>
+                            <constraint firstAttribute="width" constant="205" id="Amf-aP-SNm"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="IkY-nS-m6O" firstAttribute="top" secondItem="L8p-T2-EdC" secondAttribute="bottom" constant="8" id="6Lg-xV-IRk"/>
-                    <constraint firstItem="hLQ-bZ-QV2" firstAttribute="top" secondItem="IkY-nS-m6O" secondAttribute="bottom" constant="8" id="BR9-l3-jYA"/>
+                    <constraint firstItem="hLQ-bZ-QV2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="ISz-7S-t5C"/>
+                    <constraint firstAttribute="bottom" secondItem="hLQ-bZ-QV2" secondAttribute="bottom" constant="8" id="MDQ-b4-eb9"/>
                     <constraint firstItem="IkY-nS-m6O" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="MbM-N9-G53"/>
                     <constraint firstItem="L8p-T2-EdC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="MxA-fP-MFs"/>
                     <constraint firstItem="L8p-T2-EdC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="ktw-f2-RqM"/>
-                    <constraint firstItem="hLQ-bZ-QV2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="w7w-bx-r4h"/>
+                    <constraint firstItem="hLQ-bZ-QV2" firstAttribute="top" secondItem="IkY-nS-m6O" secondAttribute="bottom" constant="8" id="qp0-ju-A0x"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -70,7 +69,7 @@
                 <outlet property="_remarkLb" destination="L8p-T2-EdC" id="8fF-K8-BLI"/>
                 <outlet property="_timeLb" destination="IkY-nS-m6O" id="SQK-lr-15w"/>
             </connections>
-            <point key="canvasLocation" x="280" y="334"/>
+            <point key="canvasLocation" x="280" y="328.5"/>
         </tableViewCell>
     </objects>
 </document>

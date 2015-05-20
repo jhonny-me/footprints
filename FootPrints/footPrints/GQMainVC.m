@@ -206,10 +206,11 @@ updatingLocation:(BOOL)updatingLocation
     
         photoPage = infoArray.count;
     }
-
+    
     BOOL isRepeat = NO;
     for (int i=0; i<photoPage; i++) {
         int randomInfoIndex = arc4random() % infoArray.count;
+        
         for (Infomation* info in _headerImageArray) {
             if ([info isEqual:infoArray[randomInfoIndex]]) {
                 isRepeat = YES;
@@ -218,6 +219,8 @@ updatingLocation:(BOOL)updatingLocation
         }
         
         if (isRepeat == YES) {
+            isRepeat = NO;
+            i--;
             continue;
         }else{
         

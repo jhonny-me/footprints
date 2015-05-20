@@ -32,6 +32,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    [self loadGQShareDetailVCData];
     [self loadGQShareDetailVCUI];
 }
 
@@ -192,6 +193,7 @@
     
     // set photoArray
     NSMutableArray *photoArray = [NSMutableArray arrayWithArray:_imageArray];
+
     [photoArray insertObject:self.image atIndex:0];
     info.photoArray = [photoArray mutableCopy];
     // save changes

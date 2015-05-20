@@ -49,11 +49,12 @@
     _timeLb.text = [NSString stringWithFormat:@"时间: %@",time];
     
     // 设置imageView
-    CGFloat heightForImageHolderView = 100;
-    if ([info.photoArray count] > 2) {
-        heightForImageHolderView = 205;
-    }
-    _imageHolderView.frame = CGRectMake(_imageHolderView.frame.origin.x, _imageHolderView.frame.origin.y, 205, heightForImageHolderView);
+    _imageHolderView.layer.masksToBounds = YES;
+//    CGFloat heightForImageHolderView = 100;
+//    if ([info.photoArray count] > 2) {
+//        heightForImageHolderView = 205;
+//    }
+//    _imageHolderView.frame = CGRectMake(_imageHolderView.frame.origin.x, _imageHolderView.frame.origin.y, 205, heightForImageHolderView);
     
     for (int i=200; i<204; i++) {
         UIImageView *view = (UIImageView*)[_imageHolderView viewWithTag:i];
