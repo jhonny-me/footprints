@@ -11,6 +11,7 @@
 #import "ShareSDK/ShareSDK.h"
 #import "WeiboSDK.h"
 #import "CoreData+MagicalRecord.h"
+#import "Parse/Parse.h"
 
 @interface AppDelegate ()<CLLocationManagerDelegate>
 {
@@ -39,10 +40,26 @@
     
     [ShareSDK connectSinaWeiboWithAppKey:@"1275159907" appSecret:@"5468a0ef6fb237cbf29e78d7dc21103a" redirectUri:@"http://open.weibo.com/apps/1275159907/privilege/oauth" weiboSDKCls:[WeiboSDK class]];
     
+    // Prase init
+    [Parse setApplicationId:@"sky8LinKR6xibn7JeS09hTtBFD67Kvc8FRWCs0NY" clientKey:@"0KMT7NHMmmnmX1mD0TQ0z3vLXzSMPVGNiYywxDfj"];
+    
     // dataBase init
      [MagicalRecord setupCoreDataStackWithStoreNamed:@"MyDatabase.sqlite"];
     
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [ShareSDK handleOpenURL:url wxDelegate:nil];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [ShareSDK handleOpenURL:url
+                 sourceApplication:sourceApplication
+                        annotation:annotation
+                        wxDelegate:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

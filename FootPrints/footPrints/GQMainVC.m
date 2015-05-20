@@ -31,6 +31,8 @@
     
     _fastImage = [[UIImage alloc]init];
     
+    self.navigationItem.hidesBackButton = YES;
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated{
@@ -67,6 +69,9 @@
     //分页视图
     
     _pageController.numberOfPages = _headerImageArray.count;
+    if (_headerImageArray.count == 0) {
+        _pageController.numberOfPages = 2;
+    }
     _pageController.currentPage = 0;
     
     //显示滚动视图
@@ -118,6 +123,22 @@
         [_scrollView addSubview:topImageView];
     }
     
+    if (_headerImageArray.count == 0) {
+        [_headerImageArray addObject:@"头条"];
+        [_headerImageArray addObject:@"壁纸"];
+        
+        for(int i = 0;i<_headerImageArray.count;i++)
+        {
+            UIImageView *topImageView = [[UIImageView alloc]initWithFrame:CGRectMake(320 * i, 0, 320, 120)];
+          
+            topImageView.image = [UIImage imageNamed:_headerImageArray[i]];
+            topImageView.userInteractionEnabled = YES;
+            //[topImageView sd_setImageWithURL:[NSURL URLWithString:self.picArray[i]]];
+            UITapGestureRecognizer *g = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapImageView:)];
+            [topImageView addGestureRecognizer:g];
+            [_scrollView addSubview:topImageView];
+        }
+    }
     
 }
 

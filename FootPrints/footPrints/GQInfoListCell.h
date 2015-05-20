@@ -18,5 +18,6 @@
 }
 
 - (void) setContentWithInfomation:(Infomation*)info;
+- (CGFloat) heightForCell;
 
 @end

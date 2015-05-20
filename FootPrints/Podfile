@@ -4,3 +4,4 @@ pod 'AMap2DMap' #2D地图SDK (2D和3D不能同时使⽤用)
 pod 'AMapSearch' #搜索服务SDK
 pod 'ELCImagePickerController' #图片多选
 pod 'MagicalRecord' #数据库
+pod 'Parse'  #

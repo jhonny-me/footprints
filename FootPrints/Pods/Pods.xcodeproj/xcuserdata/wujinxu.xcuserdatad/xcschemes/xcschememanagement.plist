@@ -4,12 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ELCImagePickerController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-MagicalRecord.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,17 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3A1A2DEEC0FFC0CB7CA87E69</key>
+		<key>3F5B39CCE3EF9EE91F5D5DE7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B387AE407A01EDEA81138B15</key>
+		<key>769991813A7E8A4E0B0212C0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BF72401FFE1093C6DCB5B37C</key>
+		<key>AC9EA81CF589A9CEC3E81D45</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E59DEDB0F9F826B0C48063E7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F89386D7DF69438FCAF1683B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

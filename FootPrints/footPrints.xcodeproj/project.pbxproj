@@ -49,6 +49,7 @@
 		4FD4164B1B0B092400CF372D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD4164A1B0B092400CF372D /* CoreData.framework */; };
 		4FD4164F1B0B09D800CF372D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FD4164D1B0B09D800CF372D /* Model.xcdatamodeld */; };
 		4FD416521B0B0B0900CF372D /* Infomation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD416511B0B0B0900CF372D /* Infomation.m */; };
+		4FF300CA1B0C4F23007F08ED /* GQLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF300C91B0C4F23007F08ED /* GQLoginVC.m */; };
 		FAB7653A955650FFC2D673E5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 113808C65FC5CE73B9E64B17 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +129,8 @@
 		4FD4164E1B0B09D800CF372D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		4FD416501B0B0B0900CF372D /* Infomation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Infomation.h; sourceTree = "<group>"; };
 		4FD416511B0B0B0900CF372D /* Infomation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Infomation.m; sourceTree = "<group>"; };
+		4FF300C81B0C4F23007F08ED /* GQLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQLoginVC.h; sourceTree = "<group>"; };
+		4FF300C91B0C4F23007F08ED /* GQLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GQLoginVC.m; sourceTree = "<group>"; };
 		5A24C196C04560857C3A2D8C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -340,6 +343,8 @@
 				4F40EEDC1AFF2FA300474F17 /* GQMainVC.m */,
 				4F8005111B0B973B00925197 /* GQInfoListVC.h */,
 				4F8005121B0B973B00925197 /* GQInfoListVC.m */,
+				4FF300C81B0C4F23007F08ED /* GQLoginVC.h */,
+				4FF300C91B0C4F23007F08ED /* GQLoginVC.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -562,6 +567,7 @@
 				4F02AA471B0A2B2400CEFD61 /* GQUtils.m in Sources */,
 				4FD416521B0B0B0900CF372D /* Infomation.m in Sources */,
 				4F8005181B0B979600925197 /* GQInfoListCell.m in Sources */,
+				4FF300CA1B0C4F23007F08ED /* GQLoginVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

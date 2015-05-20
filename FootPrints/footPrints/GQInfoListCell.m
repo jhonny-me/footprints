@@ -50,11 +50,11 @@
     
     // 设置imageView
     _imageHolderView.layer.masksToBounds = YES;
-//    CGFloat heightForImageHolderView = 100;
-//    if ([info.photoArray count] > 2) {
-//        heightForImageHolderView = 205;
-//    }
-//    _imageHolderView.frame = CGRectMake(_imageHolderView.frame.origin.x, _imageHolderView.frame.origin.y, 205, heightForImageHolderView);
+    CGFloat heightForImageHolderView = 100;
+    if ([info.photoArray count] > 2) {
+        heightForImageHolderView = 205;
+    }
+    _imageHolderView.frame = CGRectMake(_imageHolderView.frame.origin.x, _imageHolderView.frame.origin.y, 205, heightForImageHolderView);
     
     for (int i=200; i<204; i++) {
         UIImageView *view = (UIImageView*)[_imageHolderView viewWithTag:i];
@@ -65,6 +65,11 @@
         UIImageView *view = (UIImageView*)[_imageHolderView viewWithTag:i];
         view.image = [info.photoArray objectAtIndex:(i - 200)];
     }
+}
+
+- (CGFloat) heightForCell{
+
+    return _imageHolderView.frame.origin.y + _imageHolderView.frame.size.height + 8;
 }
 
 @end

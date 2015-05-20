@@ -114,7 +114,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WzM-fs-Kzs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="356" y="-7"/>
+            <point key="canvasLocation" x="266" y="-7"/>
         </scene>
         <!--InfoListVC-->
         <scene sceneID="0WD-Nn-ZY1">
@@ -140,7 +140,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rTi-iw-VpP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="356" y="701"/>
+            <point key="canvasLocation" x="266" y="717"/>
         </scene>
         <!--GQMapVC-->
         <scene sceneID="7uA-66-65X">
@@ -318,16 +318,54 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Shj-O6-Pnn" kind="relationship" relationship="rootViewController" id="yZI-TD-Oha"/>
+                        <segue destination="sTA-0W-XYf" kind="relationship" relationship="rootViewController" id="hEm-Cr-ZAg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4a-PY-1rP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-456" y="-7"/>
+            <point key="canvasLocation" x="-750" y="-7"/>
+        </scene>
+        <!--LoginVC-->
+        <scene sceneID="D9h-iM-0Sg">
+            <objects>
+                <viewController id="sTA-0W-XYf" userLabel="LoginVC" customClass="GQLoginVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J0s-7r-eLl"/>
+                        <viewControllerLayoutGuide type="bottom" id="twF-vm-BCx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Agl-Z0-CUJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Nda-LO-kJZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfz-ks-3pa">
+                                <rect key="frame" x="80" y="400" width="160" height="58"/>
+                                <state key="normal" title="微博登陆" image="sdk_weibo_logo@3x.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginBtn_Pressed:" destination="sTA-0W-XYf" eventType="touchUpInside" id="4jz-8t-hRR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DK2-Xs-ZI8"/>
+                    <connections>
+                        <segue destination="Shj-O6-Pnn" kind="show" identifier="SegueToMainVC" id="Qzr-Mq-YPm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hx2-au-gku" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-234" y="-7"/>
         </scene>
     </scenes>
     <resources>
         <image name="add" width="54" height="52"/>
         <image name="foot" width="700" height="874"/>
+        <image name="loginBackground" width="640" height="1136"/>
+        <image name="sdk_weibo_logo@3x.png" width="60" height="60"/>
     </resources>
 </document>
