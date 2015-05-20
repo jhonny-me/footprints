@@ -9,6 +9,7 @@
 #import "GQLoginVC.h"
 #import "ShareSDK/ShareSDK.h"
 #import "PFQuery.h"
+#import "GQUtils.h"
 
 @interface GQLoginVC ()
 
@@ -19,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self loadGQLoginVCUI];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,14 +28,25 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) loadGQLoginVCUI{
+
+    self.navigationController.navigationBarHidden = YES;
+    self.loginBtn.layer.cornerRadius = 13.0f;
+    self.loginBtn.layer.borderWidth = 1;
+    self.loginBtn.layer.borderColor = [UIColor whiteColor].CGColor;
+}
+
 #pragma mark - Login Events
 
 - (IBAction)loginBtn_Pressed:(id)sender {
     
+    _loginBtn.enabled = NO;
+//    WAITING_START(@"登陆中。。")
     [ShareSDK getUserInfoWithType:ShareTypeSinaWeibo
                       authOptions:nil
                            result:^(BOOL result, id<ISSPlatformUser> userInfo, id<ICMErrorInfo> error)
      {
+//         WAITING_END()
          
          if (result)
          {
@@ -41,6 +54,7 @@
              [query whereKey:@"uid" equalTo:[userInfo uid]];
              [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
               {
+                  _loginBtn.enabled = YES;
                   
                   if ([objects count] == 0)
                   {
@@ -67,14 +81,11 @@
                       [alertView show];
                   }
               }];
-             
+//            WAITING_END()
             [self performSegueWithIdentifier:@"SegueToMainVC" sender:self];
              
          }
-         
      }];
-    
-
 }
 
 /*

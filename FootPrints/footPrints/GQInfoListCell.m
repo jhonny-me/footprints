@@ -65,6 +65,8 @@
         UIImageView *view = (UIImageView*)[_imageHolderView viewWithTag:i];
         view.image = [info.photoArray objectAtIndex:(i - 200)];
     }
+    
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, 320, [self heightForCell]);
 }
 
 - (CGFloat) heightForCell{

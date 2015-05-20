@@ -61,6 +61,8 @@
 }
 
 - (void) loadGQShareDetailVCUI{
+    
+    self.navigationItem.title = @"👣";
 
     _scrollView.contentSize = CGSizeMake(320, 660);
     

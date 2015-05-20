@@ -23,6 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.title = @"👣";
     // Do any additional setup after loading the view.
     
     [self loadGQMapVCData];
@@ -57,6 +59,7 @@
     
     [self.view addSubview:_mapView];
     [self.view bringSubviewToFront:self._saveBtn];
+//    [self.view bringSubviewToFront:self._greenPinLocation];
 }
 
 #pragma mark - Map Events

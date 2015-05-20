@@ -10,5 +10,6 @@
 
 @interface GQMapVC : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *_greenPinLocation;
 @property (weak, nonatomic) IBOutlet UIButton *_saveBtn;
 @end

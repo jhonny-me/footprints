@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface GQLoginVC : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 
 @end

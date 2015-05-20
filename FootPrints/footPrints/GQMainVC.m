@@ -32,6 +32,8 @@
     _fastImage = [[UIImage alloc]init];
     
     self.navigationItem.hidesBackButton = YES;
+    self.navigationController.navigationBarHidden = NO;
+//    self.navigationItem.title = @"👣";
     
 }
 
@@ -271,6 +273,13 @@ updatingLocation:(BOOL)updatingLocation
     [self performSegueWithIdentifier:@"SegueToInfoListVC" sender:self];
 }
 
+- (IBAction)logoutBtn_Pressed:(id)sender {
+    
+    [ShareSDK cancelAuthWithType:ShareTypeSinaWeibo];
+    
+    self.navigationController.navigationBarHidden = YES;
+    [self.navigationController popViewControllerAnimated:NO];
+}
 
 #pragma mark - Navigation
 
