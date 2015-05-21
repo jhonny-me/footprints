@@ -47,5 +47,9 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>footPrint57.png</string>
+	</array>
 </dict>
 </plist>
