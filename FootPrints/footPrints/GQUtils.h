@@ -13,10 +13,10 @@
 
 @interface GQUtils : NSObject
 
-//+ (void)changeViewHeight: (UIView*)view height: (CGFloat)height;
-//+ (void)changeViewWidth: (UIView*)view width: (CGFloat)width;
-//+ (void)moveViewToX: (UIView*)view x: (CGFloat)x;
-//+ (void)moveViewToY: (UIView*)view y: (CGFloat)y;
++ (void)changeViewHeight: (UIView*)view height: (CGFloat)height;
++ (void)changeViewWidth: (UIView*)view width: (CGFloat)width;
++ (void)moveViewToX: (UIView*)view x: (CGFloat)x;
++ (void)moveViewToY: (UIView*)view y: (CGFloat)y;
 
 + (void) shareToSinaWithMessage:(NSString *)message Image:(UIImage *)image;
 + (void) showAlert:(NSString*) message;

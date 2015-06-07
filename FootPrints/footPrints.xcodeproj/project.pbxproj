@@ -44,6 +44,7 @@
 		4F8005191B0B979600925197 /* GQInfoListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F8005171B0B979600925197 /* GQInfoListCell.xib */; };
 		4F8E8A611B071AE800F369ED /* GQMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8E8A601B071AE800F369ED /* GQMapVC.m */; };
 		4F8E8A631B07239D00F369ED /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8E8A621B07239D00F369ED /* CoreLocation.framework */; };
+		4FD413721B17FD8E00F63C55 /* GQDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD413711B17FD8E00F63C55 /* GQDetailsVC.m */; };
 		4FD416441B0ADA9C00CF372D /* backgroud.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FD416431B0ADA9C00CF372D /* backgroud.png */; };
 		4FD416491B0AF93400CF372D /* SHKActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD416481B0AF93400CF372D /* SHKActivityIndicator.m */; };
 		4FD4164B1B0B092400CF372D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD4164A1B0B092400CF372D /* CoreData.framework */; };
@@ -125,6 +126,8 @@
 		4F8E8A5F1B071AE800F369ED /* GQMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQMapVC.h; sourceTree = "<group>"; };
 		4F8E8A601B071AE800F369ED /* GQMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GQMapVC.m; sourceTree = "<group>"; };
 		4F8E8A621B07239D00F369ED /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4FD413701B17FD8E00F63C55 /* GQDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQDetailsVC.h; sourceTree = "<group>"; };
+		4FD413711B17FD8E00F63C55 /* GQDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GQDetailsVC.m; sourceTree = "<group>"; };
 		4FD416431B0ADA9C00CF372D /* backgroud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroud.png; sourceTree = "<group>"; };
 		4FD416471B0AF93400CF372D /* SHKActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKActivityIndicator.h; sourceTree = "<group>"; };
 		4FD416481B0AF93400CF372D /* SHKActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKActivityIndicator.m; sourceTree = "<group>"; };
@@ -354,6 +357,8 @@
 				4F8005121B0B973B00925197 /* GQInfoListVC.m */,
 				4FF300C81B0C4F23007F08ED /* GQLoginVC.h */,
 				4FF300C91B0C4F23007F08ED /* GQLoginVC.m */,
+				4FD413701B17FD8E00F63C55 /* GQDetailsVC.h */,
+				4FD413711B17FD8E00F63C55 /* GQDetailsVC.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -580,6 +585,7 @@
 				4FD416521B0B0B0900CF372D /* Infomation.m in Sources */,
 				4F8005181B0B979600925197 /* GQInfoListCell.m in Sources */,
 				4FF300CA1B0C4F23007F08ED /* GQLoginVC.m in Sources */,
+				4FD413721B17FD8E00F63C55 /* GQDetailsVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

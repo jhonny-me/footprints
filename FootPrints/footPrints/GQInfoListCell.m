@@ -26,22 +26,22 @@
     // 设置详情信息
     
     _remarkLb.text = info.remark;
-    
-    _remarkLb.numberOfLines = 0;
-    
-    UIFont *font = [UIFont systemFontOfSize:17];
-    
-    _remarkLb.lineBreakMode = NSLineBreakByWordWrapping;
-    
-    NSDictionary *fontDic = [NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName ,nil];
-    
-//    NSLog(@"self.view :%@",NSStringFromCGRect(self.frame));
-    
-    CGSize size = [_remarkLb.text boundingRectWithSize:CGSizeMake(304, MAXFLOAT)
-                                                   options:NSStringDrawingUsesLineFragmentOrigin
-                                                attributes:fontDic context:nil].size;
-    
-    _remarkLb.frame = CGRectMake(_remarkLb.frame.origin.x, _remarkLb.frame.origin.y, _remarkLb.frame.size.width, size.height);
+//
+//    _remarkLb.numberOfLines = 0;
+//    
+//    UIFont *font = [UIFont systemFontOfSize:17];
+//    
+//    _remarkLb.lineBreakMode = NSLineBreakByWordWrapping;
+//    
+//    NSDictionary *fontDic = [NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName ,nil];
+//    
+////    NSLog(@"self.view :%@",NSStringFromCGRect(self.frame));
+//    
+//    CGSize size = [_remarkLb.text boundingRectWithSize:CGSizeMake(304, MAXFLOAT)
+//                                                   options:NSStringDrawingUsesLineFragmentOrigin
+//                                                attributes:fontDic context:nil].size;
+//    
+//    _remarkLb.frame = CGRectMake(_remarkLb.frame.origin.x, _remarkLb.frame.origin.y, _remarkLb.frame.size.width, size.height);
     
 
     // 设置时间

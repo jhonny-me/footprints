@@ -11,6 +11,7 @@
 #import "GQUtils.h"
 #import "CoreData+MagicalRecord.h"
 #import "Infomation.h"
+#import "GQDetailsVC.h"
 
 @interface GQMainVC ()<MAMapViewDelegate>
 {
@@ -20,6 +21,8 @@
     NSTimer *_delayTimer;
     UIImage *_fastImage;
     MAMapView *_mapView;
+    
+    GQDetailsVC *_detailsVC;
 }
 
 @end
@@ -31,10 +34,10 @@
     
     _fastImage = [[UIImage alloc]init];
     
-    self.navigationItem.hidesBackButton = YES;
-    self.navigationController.navigationBarHidden = NO;
+   
 //    self.navigationItem.title = @"👣";
     
+    _detailsVC = [[GQDetailsVC alloc]init];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
@@ -59,6 +62,9 @@
 }
 
 - (void) loadGQMainVCUI{
+    
+    self.navigationItem.hidesBackButton = YES;
+    self.navigationController.navigationBarHidden = NO;
     
     _fastShareImage.hidden = YES;
     
@@ -148,6 +154,11 @@
 {
     NSLog(@"222");
     //点击照片的事件
+//    GQDetailsVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"GQDetailsVC"];
+//    [self presentViewController:vc animated:YES completion:nil];
+    int index = _pageController.currentPage;
+    Infomation *info = _headerImageArray[index];
+    [self showDetailViewWithInfo:info];
 }
 
 #pragma mark - Map Operation
@@ -250,6 +261,71 @@ updatingLocation:(BOOL)updatingLocation
             [_headerImageArray addObject:infoArray[randomInfoIndex]];
         }
     }
+}
+
+#pragma mark - Public Methods
+
+- (void)showDetailViewWithInfo:(Infomation *)info
+{
+    /*
+     [self.navigationController.navigationBar setUserInteractionEnabled: NO];
+     [[self.navigationController navigationBar] setBarTintColor: RGBA(76, 76, 76, 1)];
+     
+     [self performSegueWithIdentifier: @"SegueToDoh" sender: nil];
+     */
+    
+    
+    [self.navigationController.navigationBar setUserInteractionEnabled: NO];
+    [[self.navigationController navigationBar] setBarTintColor: RGBA(76, 76, 76, 1)];
+    
+    _detailsVC = [self.storyboard instantiateViewControllerWithIdentifier: @"GQDetailsVC"];
+    _detailsVC.info = info;
+    
+//    _detailsVC = [[GQDetailsVC alloc]init];
+    
+    
+    // 设置显示内容
+    
+    [self.navigationController pushViewController:_detailsVC animated:YES];
+    
+    [_detailsVC willMoveToParentViewController: self];
+    [self addChildViewController: _detailsVC];
+    // 设置覆盖的view的frame与底层的大小一致
+    
+    CGRect frame = self.view.frame;
+    frame.origin.x = 0;
+    frame.origin.y = 0;
+    [_detailsVC.view setFrame: frame];
+    
+    [self.view addSubview: _detailsVC.view];
+    
+    [_detailsVC didMoveToParentViewController: self];
+    
+    [_detailsVC dismissWelcomeAlertViewBlock:^{
+        [self hideUnloginAlertView];
+    }];
+}
+
+- (void)hideUnloginAlertView
+{
+    [UIView animateWithDuration: 0.3f animations:^{
+        
+        UIView *detailsView = _detailsVC.detailsView;
+        [GQUtils moveViewToY: detailsView y: _detailsVC.view.frame.size.height];
+        
+    } completion:^(BOOL finished) {
+        
+        [self.navigationController.navigationBar setUserInteractionEnabled: YES];
+        [[self.navigationController navigationBar] setBarTintColor: [UIColor whiteColor]];
+        
+        [_detailsVC willMoveToParentViewController: nil];
+        [_detailsVC.view removeFromSuperview];
+        [_detailsVC removeFromParentViewController];
+        [_detailsVC didMoveToParentViewController: nil];
+        
+        
+        _detailsVC = nil;
+    }];
 }
 
 #pragma mark - Button Events
