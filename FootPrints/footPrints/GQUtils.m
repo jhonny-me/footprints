@@ -7,6 +7,7 @@
 //
 
 #import "GQUtils.h"
+#import "AppDelegate.h"
 
 @implementation GQUtils
 
@@ -54,7 +55,9 @@
 
     NSString *content = [NSString stringWithString:message];
     if ([content isEqualToString:@""]) {
-        content = DEFAULT_MESSAGE;
+        AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+        
+        content = delegate.defaultMessage;
     }
     
     //构造分享内容
@@ -87,6 +90,45 @@
                         
                     }];
 
+}
+
+#pragma mark - Load Default Message
+
++ (void) loadDefaultMessage{
+
+//    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"GQDefaultMessageList" ofType:@"plist"];
+      NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0]stringByAppendingPathComponent:@"GQDefaultMessageList.plist"];
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
+    NSLog(@"%@", data);//直接打印数据。
+    
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    delegate.defaultMessage = [data objectForKey:@"defaultMessage"];
+}
+
++ (void) saveDefaultMessage:(NSString*)message{
+
+    //添加一项内容
+    
+//    NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObject:message forKey:@"defaultMessage"];
+    
+    NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0]stringByAppendingPathComponent:@"GQDefaultMessageList.plist"];
+//     NSString *path = [[NSBundle mainBundle] pathForResource:@"GQDefaultMessageList" ofType:@"plist"];
+    NSMutableDictionary *applist = [[[NSMutableDictionary alloc]initWithContentsOfFile:path]mutableCopy];
+    [applist setValue:message forKey:@"defaultMessage"];
+    //写入文件
+    [applist writeToFile:path atomically:YES];
+    
+//    //获取应用程序沙盒的Documents目录
+//    NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+//    NSString *plistPath1 = [paths objectAtIndex:0];
+//    
+//    //得到完整的文件名
+//    NSString *filename=[plistPath1 stringByAppendingPathComponent:@"GQDefaultMessageList.plist"];
+//    NSLog(@"%@",filename);
+//    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"GQDefaultMessageList" ofType:@"plist"];
+//    NSMutableDictionary *usersDic = [[NSMutableDictionary alloc]initWithContentsOfFile:plistPath];
+    //输入写入
+//    [data writeToFile:plistPath atomically:YES];
 }
 
 #pragma mark - Get Time

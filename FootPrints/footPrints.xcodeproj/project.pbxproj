@@ -50,6 +50,8 @@
 		4FD4164B1B0B092400CF372D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD4164A1B0B092400CF372D /* CoreData.framework */; };
 		4FD4164F1B0B09D800CF372D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FD4164D1B0B09D800CF372D /* Model.xcdatamodeld */; };
 		4FD416521B0B0B0900CF372D /* Infomation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FD416511B0B0B0900CF372D /* Infomation.m */; };
+		4FDC106C1B241E23005005DB /* GQSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDC106B1B241E23005005DB /* GQSettingVC.m */; };
+		4FDC10701B24232B005005DB /* GQDefaultMessageList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FDC106F1B24232B005005DB /* GQDefaultMessageList.plist */; };
 		4FF300CA1B0C4F23007F08ED /* GQLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF300C91B0C4F23007F08ED /* GQLoginVC.m */; };
 		4FF7F57B1B0CDFAD00F220FE /* footPrint57.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FF7F57A1B0CDFAD00F220FE /* footPrint57.png */; };
 		4FF7F5861B0CE4AC00F220FE /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FF7F5841B0CE4AC00F220FE /* water.png */; };
@@ -135,6 +137,9 @@
 		4FD4164E1B0B09D800CF372D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		4FD416501B0B0B0900CF372D /* Infomation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Infomation.h; sourceTree = "<group>"; };
 		4FD416511B0B0B0900CF372D /* Infomation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Infomation.m; sourceTree = "<group>"; };
+		4FDC106A1B241E23005005DB /* GQSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQSettingVC.h; sourceTree = "<group>"; };
+		4FDC106B1B241E23005005DB /* GQSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GQSettingVC.m; sourceTree = "<group>"; };
+		4FDC106F1B24232B005005DB /* GQDefaultMessageList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GQDefaultMessageList.plist; sourceTree = "<group>"; };
 		4FF300C81B0C4F23007F08ED /* GQLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GQLoginVC.h; sourceTree = "<group>"; };
 		4FF300C91B0C4F23007F08ED /* GQLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GQLoginVC.m; sourceTree = "<group>"; };
 		4FF7F57A1B0CDFAD00F220FE /* footPrint57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footPrint57.png; sourceTree = "<group>"; };
@@ -186,6 +191,7 @@
 				4F02AA451B0A2B2400CEFD61 /* GQUtils.h */,
 				4F02AA461B0A2B2400CEFD61 /* GQUtils.m */,
 				4F1916061B0B47BC00ED085F /* GQMacros.h */,
+				4FDC106F1B24232B005005DB /* GQDefaultMessageList.plist */,
 			);
 			name = Modal;
 			sourceTree = "<group>";
@@ -359,6 +365,8 @@
 				4FF300C91B0C4F23007F08ED /* GQLoginVC.m */,
 				4FD413701B17FD8E00F63C55 /* GQDetailsVC.h */,
 				4FD413711B17FD8E00F63C55 /* GQDetailsVC.m */,
+				4FDC106A1B241E23005005DB /* GQSettingVC.h */,
+				4FDC106B1B241E23005005DB /* GQSettingVC.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -514,6 +522,7 @@
 				4F8005191B0B979600925197 /* GQInfoListCell.xib in Resources */,
 				4FF7F5871B0CE4AC00F220FE /* water@2x.png in Resources */,
 				4F3480D21B0ABFB50061A453 /* ShareSDKLocalizable.strings in Resources */,
+				4FDC10701B24232B005005DB /* GQDefaultMessageList.plist in Resources */,
 				4FD416441B0ADA9C00CF372D /* backgroud.png in Resources */,
 				4F40EEC21AFF1B8800474F17 /* Images.xcassets in Resources */,
 				4FF7F57B1B0CDFAD00F220FE /* footPrint57.png in Resources */,
@@ -582,6 +591,7 @@
 				4F40EEB71AFF1B8800474F17 /* RootViewController.m in Sources */,
 				4FD4164F1B0B09D800CF372D /* Model.xcdatamodeld in Sources */,
 				4F02AA471B0A2B2400CEFD61 /* GQUtils.m in Sources */,
+				4FDC106C1B241E23005005DB /* GQSettingVC.m in Sources */,
 				4FD416521B0B0B0900CF372D /* Infomation.m in Sources */,
 				4F8005181B0B979600925197 /* GQInfoListCell.m in Sources */,
 				4FF300CA1B0C4F23007F08ED /* GQLoginVC.m in Sources */,

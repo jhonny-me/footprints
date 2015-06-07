@@ -9,7 +9,7 @@
 #import "GQInfoListVC.h"
 #import "GQInfoListCell.h"
 #import "Infomation.h"
-#import "CoreData+MagicalRecord.h"
+#import "MagicalRecord.h"
 #import "GQUtils.h"
 
 @interface GQInfoListVC ()

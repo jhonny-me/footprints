@@ -22,4 +22,7 @@
 + (void) showAlert:(NSString*) message;
 + (NSString *) getCurrentTime;
 
++ (void) loadDefaultMessage;
++ (void) saveDefaultMessage:(NSString *)message;
+
 @end

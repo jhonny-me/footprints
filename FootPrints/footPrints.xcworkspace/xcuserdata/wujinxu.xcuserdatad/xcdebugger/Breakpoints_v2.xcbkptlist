@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "footPrints/GQMainVC.m"
-            timestampString = "455350441.931838"
+            filePath = "footPrints/GQSettingVC.m"
+            timestampString = "455372694.775683"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
-            landmarkName = "-hideUnloginAlertView"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "-loadGQSettingVCData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "footPrints/GQDetailsVC.m"
-            timestampString = "455350122.198688"
+            filePath = "footPrints/GQSettingVC.m"
+            timestampString = "455372694.775683"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "-closeBtn_Pressed:"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-loadGQSettingVCData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "footPrints/GQMainVC.m"
+            timestampString = "455377266.619968"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "346"
+            endingLineNumber = "346"
+            landmarkName = "-rightFootBtn_Pressed:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -36,12 +36,14 @@
     [super viewWillAppear:animated];
     
     [self setContentWithInfo:self.info];
+//    self.navigationController.navigationBarHidden = YES;
     
     [UIView animateWithDuration: 0.3f animations:^{
         
         [GQUtils moveViewToY: _detailsView y: 100.0f];
     }];
 }
+
 
 
 

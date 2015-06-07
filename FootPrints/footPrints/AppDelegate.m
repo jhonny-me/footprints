@@ -10,7 +10,7 @@
 #import "CoreLocation/CLLocationManager.h"
 #import "ShareSDK/ShareSDK.h"
 #import "WeiboSDK.h"
-#import "CoreData+MagicalRecord.h"
+#import "MagicalRecord.h"
 #import "Parse/Parse.h"
 
 @interface AppDelegate ()<CLLocationManagerDelegate>

@@ -10,8 +10,9 @@
 #import "GQUtils.h"
 
 #import "ELCImagePickerController.h"
-#import "CoreData+MagicalRecord.h"
+#import "MagicalRecord.h"
 #import "Infomation.h"
+#import "AppDelegate.h"
 
 @interface GQShareDetailVC ()<UITextViewDelegate,ELCImagePickerControllerDelegate,ELCAssetSelectionDelegate>
 {
@@ -125,7 +126,9 @@
     
     NSString *content = [NSString stringWithString:_remarkTextView.text];
     if ([content isEqualToString:@""]) {
-        content = DEFAULT_MESSAGE;
+        AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+       
+        content = delegate.defaultMessage;
     }
     
     //存储数据库

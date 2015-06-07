@@ -9,9 +9,10 @@
 #import "GQMainVC.h"
 #import "MAMapKit/MAMapkit.h"
 #import "GQUtils.h"
-#import "CoreData+MagicalRecord.h"
+#import "MagicalRecord.h"
 #import "Infomation.h"
 #import "GQDetailsVC.h"
+#import "AppDelegate.h"
 
 @interface GQMainVC ()<MAMapViewDelegate>
 {
@@ -37,7 +38,7 @@
    
 //    self.navigationItem.title = @"👣";
     
-    _detailsVC = [[GQDetailsVC alloc]init];
+//    _detailsVC = [[GQDetailsVC alloc]init];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
@@ -59,6 +60,7 @@
     _headerImageArray = [[NSMutableArray alloc] init];
     
     [self loadRandomInfomation];
+    [GQUtils loadDefaultMessage];
 }
 
 - (void) loadGQMainVCUI{
@@ -267,13 +269,9 @@ updatingLocation:(BOOL)updatingLocation
 
 - (void)showDetailViewWithInfo:(Infomation *)info
 {
-    /*
-     [self.navigationController.navigationBar setUserInteractionEnabled: NO];
-     [[self.navigationController navigationBar] setBarTintColor: RGBA(76, 76, 76, 1)];
-     
-     [self performSegueWithIdentifier: @"SegueToDoh" sender: nil];
-     */
-    
+    if (_detailsVC != nil) {
+        return;
+    }
     
     [self.navigationController.navigationBar setUserInteractionEnabled: NO];
     [[self.navigationController navigationBar] setBarTintColor: RGBA(76, 76, 76, 1)];
@@ -281,12 +279,8 @@ updatingLocation:(BOOL)updatingLocation
     _detailsVC = [self.storyboard instantiateViewControllerWithIdentifier: @"GQDetailsVC"];
     _detailsVC.info = info;
     
-//    _detailsVC = [[GQDetailsVC alloc]init];
-    
     
     // 设置显示内容
-    
-    [self.navigationController pushViewController:_detailsVC animated:YES];
     
     [_detailsVC willMoveToParentViewController: self];
     [self addChildViewController: _detailsVC];
@@ -322,7 +316,7 @@ updatingLocation:(BOOL)updatingLocation
         [_detailsVC.view removeFromSuperview];
         [_detailsVC removeFromParentViewController];
         [_detailsVC didMoveToParentViewController: nil];
-        
+        [_detailsVC.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:NO];
         
         _detailsVC = nil;
     }];
@@ -334,27 +328,33 @@ updatingLocation:(BOOL)updatingLocation
     
     Infomation *info = [Infomation MR_createEntity];
     
-    info.remark = DEFAULT_MESSAGE;
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+  
+    info.remark = delegate.defaultMessage;
     info.date   = [GQUtils getCurrentTime];
     info.photoArray = [[NSArray arrayWithObject:_fastShareImage.image] mutableCopy];
     
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     
-    [GQUtils shareToSinaWithMessage:DEFAULT_MESSAGE Image:_fastShareImage.image];
+    [GQUtils shareToSinaWithMessage:delegate.defaultMessage Image:_fastShareImage.image];
 }
 
 
 - (IBAction)rightFootBtn_Pressed:(id)sender {
     
     [self performSegueWithIdentifier:@"SegueToInfoListVC" sender:self];
+
+//    GQInfoListVC* VC = [self.storyboard instantiateViewControllerWithIdentifier:@"GQInfoListVC"];
+//    [_detailsVC.navigationController pushViewController:VC animated:YES];
+    
 }
 
 - (IBAction)logoutBtn_Pressed:(id)sender {
     
-    [ShareSDK cancelAuthWithType:ShareTypeSinaWeibo];
-    
-    self.navigationController.navigationBarHidden = YES;
-    [self.navigationController popViewControllerAnimated:NO];
+//    [ShareSDK cancelAuthWithType:ShareTypeSinaWeibo];
+//    
+//    self.navigationController.navigationBarHidden = YES;
+//    [self.navigationController popViewControllerAnimated:NO];
 }
 
 #pragma mark - Navigation
