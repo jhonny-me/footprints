@@ -11,11 +11,13 @@
 #import "Infomation.h"
 #import "MagicalRecord.h"
 #import "GQUtils.h"
+#import "GQDetailsVC.h"
 
-@interface GQInfoListVC ()
+@interface GQInfoListVC ()<UITableViewDelegate>
 {
 
     NSMutableArray *_infoArray;
+    GQDetailsVC *_detailsVC;
 }
 
 @end
@@ -27,6 +29,8 @@
     
     _infoArray = [[NSMutableArray alloc]init];
     self.navigationItem.title = @"我的👣";
+    
+    self.tableView.delegate = self;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -117,6 +121,12 @@
     return @"删除";
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    Infomation *info = _infoArray[indexPath.row];
+    [self showDetailViewWithInfo:info];
+}
+
 /*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
@@ -163,6 +173,65 @@
         }
     }];
 }
+
+#pragma mark - Public Methods
+
+- (void)showDetailViewWithInfo:(Infomation *)info
+{
+    if (_detailsVC != nil) {
+        return;
+    }
+    
+    [self.navigationController.navigationBar setUserInteractionEnabled: NO];
+    [[self.navigationController navigationBar] setBarTintColor: RGBA(76, 76, 76, 1)];
+    
+    _detailsVC = [self.storyboard instantiateViewControllerWithIdentifier: @"GQDetailsVC"];
+    _detailsVC.info = info;
+    
+    
+    // 设置显示内容
+    
+    [_detailsVC willMoveToParentViewController: self];
+    [self addChildViewController: _detailsVC];
+    // 设置覆盖的view的frame与底层的大小一致
+    
+    CGRect frame = self.view.frame;
+    frame.origin.x = 0;
+    frame.origin.y = 0;
+    [_detailsVC.view setFrame: frame];
+    
+    [self.view addSubview: _detailsVC.view];
+    
+    [_detailsVC didMoveToParentViewController: self];
+    
+    [_detailsVC dismissWelcomeAlertViewBlock:^{
+        [self hideUnloginAlertView];
+    }];
+}
+
+- (void)hideUnloginAlertView
+{
+    [UIView animateWithDuration: 0.3f animations:^{
+        
+        UIView *detailsView = _detailsVC.detailsView;
+        [GQUtils moveViewToY: detailsView y: _detailsVC.view.frame.size.height];
+        
+    } completion:^(BOOL finished) {
+        
+        [self.navigationController.navigationBar setUserInteractionEnabled: YES];
+        [[self.navigationController navigationBar] setBarTintColor: [UIColor whiteColor]];
+        
+        [_detailsVC willMoveToParentViewController: nil];
+        [_detailsVC.view removeFromSuperview];
+        [_detailsVC removeFromParentViewController];
+        [_detailsVC didMoveToParentViewController: nil];
+        [_detailsVC.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:NO];
+        
+        _detailsVC = nil;
+    }];
+}
+
+
 
 
 /*
